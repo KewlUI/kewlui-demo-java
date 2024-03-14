@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KewlUI</title>
+  <style>
+    .spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .spinner-inner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-left-color: #7986cb;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="kewlui.0.0.1.css.gz">
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root" class="hidden"></div>
+  <div class="spinner starfield">
+    <div class="spinner-inner"></div>
+    <h1>KewlUI (Alpha) - Java Demo</h1>
+  </div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script>
+    window.onload = function () {
+      setTimeout(function () {
+        document.querySelector('.spinner').classList.add('hidden');
+        document.querySelector('#root').classList.remove('hidden');
+      }, 500);
+    };
+  </script>
+
+  <script src="kewlui.0.0.1.js.gz"></script>
+
+</body>
+
+</html>
