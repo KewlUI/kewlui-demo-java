@@ -1,0 +1,103 @@
+<Meta description="Data Transform Filter"/>
+
+<Card xcontrol="card_data_transform_filter" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_data_transform_filter">
+        <![CDATA[
+        {
+            "dataset": [
+              {
+                "id": "dataset_raw",
+                "source": [
+                  ["Year", "Country", "Income"],
+                  [1950, "Germany", 10000],
+                  [1951, "Germany", 11000],
+                  [1952, "Germany", 12000],
+                  [1953, "Germany", 13000],
+                  [1954, "Germany", 14000],
+                  [1955, "Germany", 15000],
+                  [1956, "Germany", 16000],
+                  [1957, "Germany", 17000],
+                  [1958, "Germany", 18000],
+                  [1959, "Germany", 19000],
+                  [1960, "Germany", 20000],
+                  [1950, "France", 9500],
+                  [1951, "France", 10500],
+                  [1952, "France", 11500],
+                  [1953, "France", 12500],
+                  [1954, "France", 13500],
+                  [1955, "France", 14500],
+                  [1956, "France", 15500],
+                  [1957, "France", 16500],
+                  [1958, "France", 17500],
+                  [1959, "France", 18500],
+                  [1960, "France", 19500]
+                ]
+              },
+              {
+                "id": "dataset_since_1950_of_germany",
+                "fromDatasetId": "dataset_raw",
+                "transform": {
+                  "type": "filter",
+                  "config": {
+                    "and": [
+                      { "dimension": "Year", "gte": 1950 },
+                      { "dimension": "Country", "=": "Germany" }
+                    ]
+                  }
+                }
+              },
+              {
+                "id": "dataset_since_1950_of_france",
+                "fromDatasetId": "dataset_raw",
+                "transform": {
+                  "type": "filter",
+                  "config": {
+                    "and": [
+                      { "dimension": "Year", "gte": 1950 },
+                      { "dimension": "Country", "=": "France" }
+                    ]
+                  }
+                }
+              }
+            ],
+            "title": {
+              "text": "{{chartTitle|}}"
+            },
+            "tooltip": {
+              "trigger": "axis"
+            },
+            "xAxis": {
+              "type": "category",
+              "nameLocation": "middle"
+            },
+            "yAxis": {
+              "name": "Income"
+            },
+            "series": [
+              {
+                "type": "line",
+                "datasetId": "dataset_since_1950_of_germany",
+                "showSymbol": false,
+                "encode": {
+                  "x": "Year",
+                  "y": "Income",
+                  "itemName": "Year",
+                  "tooltip": ["Income"]
+                }
+              },
+              {
+                "type": "line",
+                "datasetId": "dataset_since_1950_of_france",
+                "showSymbol": false,
+                "encode": {
+                  "x": "Year",
+                  "y": "Income",
+                  "itemName": "Year",
+                  "tooltip": ["Income"]
+                }
+              }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

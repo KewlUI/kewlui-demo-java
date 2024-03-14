@@ -1,0 +1,25 @@
+<Meta description="Basic area chart"/>
+
+<Card xcontrol="card_area_basic" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_area_basic">
+        <![CDATA[
+        {
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": false,
+                "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "series": [
+                {
+                    "data": [820, 932, 901, 934, 1290, 1330, 1320],
+                    "type": "line",
+                    "areaStyle": {}
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

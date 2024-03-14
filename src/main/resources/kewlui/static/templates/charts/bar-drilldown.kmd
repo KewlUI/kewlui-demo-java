@@ -1,0 +1,29 @@
+<Meta description="Bar Chart Drilldown Animation"/>
+
+<Card xcontrol="card_bar_drilldown" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_drilldown">
+        <![CDATA[
+        {
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": false,
+                "data": ["Animals", "Fruits", "Cars"]
+            },
+            "yAxis": {"type": "value"},
+            "dataGroupId": "",
+            "animationDurationUpdate": 500,
+            "series": [
+                {
+                    "type": "bar",
+                    "id": "sales",
+                    "data": [
+                        {"value": 5, "groupId": "animals"},
+                        {"value": 2, "groupId": "fruits"},
+                        {"value": 4, "groupId": "cars"}
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

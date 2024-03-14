@@ -1,0 +1,65 @@
+<Meta description="Graph on Cartesian"/>
+
+<Card xcontrol="card_graph_grid" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_graph_grid">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {},
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": false,
+                "data": ["Mon", "Tue", "Wed", "Very Loooong Thu", "Fri", "Sat", "Sun"]
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "series": [
+                {
+                    "type": "graph",
+                    "layout": "none",
+                    "coordinateSystem": "cartesian2d",
+                    "symbolSize": 40,
+                    "label": {
+                        "show": true
+                    },
+                    "edgeSymbol": ["circle", "arrow"],
+                    "edgeSymbolSize": [4, 10],
+                    "data": [560, 870, 1800, 3200, 5100, 7300, 9600],
+                    "links": [
+                        {
+                            "source": 0,
+                            "target": 1
+                        },
+                        {
+                            "source": 1,
+                            "target": 2
+                        },
+                        {
+                            "source": 2,
+                            "target": 3
+                        },
+                        {
+                            "source": 3,
+                            "target": 4
+                        },
+                        {
+                            "source": 4,
+                            "target": 5
+                        },
+                        {
+                            "source": 5,
+                            "target": 6
+                        }
+                    ],
+                    "lineStyle": {
+                        "color": "#2f4554"
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,53 @@
+<Meta description="Stacked Bar Chart on Polar"/>
+
+<Card xcontrol="card_bar_polar_stack" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_polar_stack">
+        <![CDATA[
+        {
+            "angleAxis": {},
+            "radiusAxis": {
+                "type": "category",
+                "data": ["Mon", "Tue", "Wed", "Thu"],
+                "z": 10
+            },
+            "polar": {},
+            "series": [
+                {
+                    "type": "bar",
+                    "data": [1, 2, 3, 4],
+                    "coordinateSystem": "polar",
+                    "name": "A",
+                    "stack": "a",
+                    "emphasis": {
+                        "focus": "series"
+                    }
+                },
+                {
+                    "type": "bar",
+                    "data": [2, 4, 6, 8],
+                    "coordinateSystem": "polar",
+                    "name": "B",
+                    "stack": "a",
+                    "emphasis": {
+                        "focus": "series"
+                    }
+                },
+                {
+                    "type": "bar",
+                    "data": [1, 2, 3, 4],
+                    "coordinateSystem": "polar",
+                    "name": "C",
+                    "stack": "a",
+                    "emphasis": {
+                        "focus": "series"
+                    }
+                }
+            ],
+            "legend": {
+                "show": true,
+                "data": ["A", "B", "C"]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

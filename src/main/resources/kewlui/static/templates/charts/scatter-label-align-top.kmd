@@ -1,0 +1,55 @@
+<Meta description="Align Label on the Top"/>
+
+<Card xcontrol="card_scatter_label_align_top" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_scatter_label_align_top">
+        <![CDATA[
+        {
+            "xAxis": {},
+            "yAxis": {
+                "scale": true
+            },
+            "series": [
+                {
+                    "name": "1990",
+                    "data": [
+                        [28604, 77, 17096869, "Australia", 1990],
+                        [31163, 77.4, 27662440, "Canada", 1990],
+                        [1516, 68, 1154605773, "China", 1990],
+                        [13670, 74.7, 10582082, "Cuba", 1990],
+                        [28599, 75, 4986705, "Finland", 1990],
+                        [29476, 77.1, 56943299, "France", 1990],
+                        [31476, 75.4, 78958237, "Germany", 1990],
+                        [28666, 78.1, 254830, "Iceland", 1990],
+                        [1777, 57.7, 870601776, "India", 1990],
+                        [29550, 79.1, 122249285, "Japan", 1990]
+                    ],
+                    "type": "scatter",
+                    "symbolSize": 0.3,
+                    "emphasis": {
+                        "focus": "self"
+                    },
+                    "labelLayout": {
+                        "y": 20,
+                        "align": "center",
+                        "hideOverlap": true,
+                        "moveOverlap": "shiftX"
+                    },
+                    "labelLine": {
+                        "show": true,
+                        "length2": 5,
+                        "lineStyle": {
+                            "color": "#bbb"
+                        }
+                    },
+                    "label": {
+                        "show": true,
+                        "formatter": "Australia",
+                        "minMargin": 10,
+                        "position": "top"
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

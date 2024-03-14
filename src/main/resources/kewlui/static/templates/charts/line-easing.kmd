@@ -1,0 +1,37 @@
+<Meta description="Line Easing Visualizing"/>
+
+<Card xcontrol="card_line_easing" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line_easing">
+        <![CDATA[
+        {
+            "title": [
+                { "text": "{{chartTitle|}}", "textAlign": "center", "textStyle": { "fontSize": 12, "fontWeight": "normal" }, "left": "40%", "top": "90%" }
+            ],
+            "grid": [
+                { "show": true, "borderWidth": 0, "shadowColor": "rgba(0, 0, 0, 0.3)", "shadowBlur": 2, "left": "0%", "top": "0%", "width": "50%", "height": "50%" },
+                { "show": true, "borderWidth": 0, "shadowColor": "rgba(0, 0, 0, 0.3)", "shadowBlur": 2, "left": "50%", "top": "0%", "width": "50%", "height": "50%" },
+                { "show": true, "borderWidth": 0, "shadowColor": "rgba(0, 0, 0, 0.3)", "shadowBlur": 2, "left": "0%", "top": "50%", "width": "50%", "height": "50%" },
+                { "show": true, "borderWidth": 0, "shadowColor": "rgba(0, 0, 0, 0.3)", "shadowBlur": 2, "left": "50%", "top": "50%", "width": "50%", "height": "50%" }
+            ],
+            "xAxis": [
+                { "type": "value", "show": false, "min": 0, "max": 1, "gridIndex": 0 },
+                { "type": "value", "show": false, "min": 0, "max": 1, "gridIndex": 1 },
+                { "type": "value", "show": false, "min": 0, "max": 1, "gridIndex": 2 },
+                { "type": "value", "show": false, "min": 0, "max": 1, "gridIndex": 3 }
+            ],
+            "yAxis": [
+                { "type": "value", "show": false, "min": -0.4, "max": 1.4, "gridIndex": 0 },
+                { "type": "value", "show": false, "min": -0.4, "max": 1.4, "gridIndex": 1 },
+                { "type": "value", "show": false, "min": -0.4, "max": 1.4, "gridIndex": 2 },
+                { "type": "value", "show": false, "min": -0.4, "max": 1.4, "gridIndex": 3 }
+            ],
+            "series": [
+                { "name": "linear", "type": "line", "xAxisIndex": 0, "yAxisIndex": 0, "data": [[0, 0], [1, 1]] },
+                { "name": "quadraticIn", "type": "line", "xAxisIndex": 1, "yAxisIndex": 1, "data": [[0, 0], [1, 1]] },
+                { "name": "quadraticOut", "type": "line", "xAxisIndex": 2, "yAxisIndex": 2, "data": [[0, 0], [1, 1]] },
+                { "name": "quadraticInOut", "type": "line", "xAxisIndex": 3, "yAxisIndex": 3, "data": [[0, 0], [1, 1]] }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

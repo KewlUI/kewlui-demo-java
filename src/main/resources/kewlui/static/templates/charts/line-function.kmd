@@ -1,0 +1,85 @@
+<Meta description="Function Plot"/>
+
+<Card xcontrol="card_line_function" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line_function">
+        <![CDATA[
+        {
+            "animation": false,
+            "grid": {
+                "top": 40,
+                "left": 50,
+                "right": 40,
+                "bottom": 50
+            },
+            "xAxis": {
+                "name": "x",
+                "minorTick": {
+                    "show": true
+                },
+                "minorSplitLine": {
+                    "show": true
+                }
+            },
+            "yAxis": {
+                "name": "y",
+                "min": -100,
+                "max": 100,
+                "minorTick": {
+                    "show": true
+                },
+                "minorSplitLine": {
+                    "show": true
+                }
+            },
+            "dataZoom": [
+                {
+                    "show": true,
+                    "type": "inside",
+                    "filterMode": "none",
+                    "xAxisIndex": [0],
+                    "startValue": -20,
+                    "endValue": 20
+                },
+                {
+                    "show": true,
+                    "type": "inside",
+                    "filterMode": "none",
+                    "yAxisIndex": [0],
+                    "startValue": -20,
+                    "endValue": 20
+                }
+            ],
+            "series": [
+                {
+                    "type": "line",
+                    "showSymbol": false,
+                    "clip": true,
+                    "data": [
+                        [-200, 0],
+                        [-180, 10],
+                        [-160, 20],
+                        [-140, 30],
+                        [-120, 40],
+                        [-100, 45],
+                        [-80, 50],
+                        [-60, 40],
+                        [-40, 30],
+                        [-20, 20],
+                        [0, 10],
+                        [20, 5],
+                        [40, -5],
+                        [60, -10],
+                        [80, -20],
+                        [100, -30],
+                        [120, -40],
+                        [140, -45],
+                        [160, -50],
+                        [180, -40],
+                        [200, -30]
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

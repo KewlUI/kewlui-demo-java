@@ -1,0 +1,62 @@
+<Meta description="NPM Dependencies"/>
+
+<Card xcontrol="card_graph_npm" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_graph_npm">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "animationDurationUpdate": 1500,
+            "animationEasingUpdate": "quinticInOut",
+            "series": [
+                {
+                    "type": "graph",
+                    "layout": "none",
+                    "data": [
+                        {
+                            "x": 14,
+                            "y": 15,
+                            "id": "node1",
+                            "name": "Node 1",
+                            "symbolSize": 10,
+                            "itemStyle": {
+                                "color": "rgb(160,82,45)"
+                            }
+                        },
+                        {
+                            "x": 25,
+                            "y": 30,
+                            "id": "node2",
+                            "name": "Node 2",
+                            "symbolSize": 7,
+                            "itemStyle": {
+                                "color": "rgb(70,130,180)"
+                            }
+                        }
+                    ],
+                    "edges": [
+                        {
+                            "source": "node1",
+                            "target": "node2"
+                        }
+                    ],
+                    "emphasis": {
+                        "focus": "adjacency",
+                        "label": {
+                            "position": "right",
+                            "show": true
+                        }
+                    },
+                    "roam": true,
+                    "lineStyle": {
+                        "width": 0.5,
+                        "curveness": 0.3,
+                        "opacity": 0.7
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

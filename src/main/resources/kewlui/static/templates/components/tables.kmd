@@ -1,0 +1,24 @@
+<Meta description="Example Page containing 1) Chart with sparklines, 2) a control with Markdown and input fields, 3) Table (via TablePlus) using server side provided data 4) Table using SQL sourced data (csv from '{urlBase}/customers-100.csv') with row selection "/>
+
+<VStack spacing={4} align="stretch">
+	<Chart xcontrol="chart" variant="LineBasic" sparkLines=true labels='["Network %"]' value='[10,20,50,20,10,60,50,30,20,40]' height="50px" width="200px"/>
+</VStack>
+
+<VStack spacing={4} align="stretch">
+        <Markdown>
+          Please enter your information below:
+        </Markdown>
+        <FormInput xcontrol="nameInput" validationRegex="^\s*\S+" errorText="Name is mandatory" placeholder="Enter your name" text="Name:"/>
+        <FormInput xcontrol="emailInput" placeholder="Enter your email" text="Email:"/>
+</VStack>
+<VStack spacing={4} align="stretch">
+	<TablePlus xcontrol='dataTable' selection=false
+	columns='[{"key":"name","name":"User Name"},{"key":"age","name":"Age"}, {"key":"location","name":"Location"}]'
+	data='[{ "name":"John Doe", "age":20, "location":"Netherlands"},{ "name":"Bob Jones", "age":30, "location":"United States"},{ "name":"Tina Smith", "age":30, "location":"Australia"}]'/>
+</VStack>
+<VStack spacing={4} align="stretch">
+	<TablePlus xcontrol='sqlTable'
+		sql="select * from CSV('{urlBase}/customers-100.csv', {headers:true})"
+		rowCount=10
+		selection=true pageRows/>
+</VStack>

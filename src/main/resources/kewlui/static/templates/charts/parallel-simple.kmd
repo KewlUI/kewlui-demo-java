@@ -1,0 +1,32 @@
+<Meta description="Basic Parallel"/>
+
+<Card xcontrol="card_parallel_simple" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_parallel_simple">
+        <![CDATA[
+        {
+            "parallelAxis": [
+                { "dim": 0, "name": "Price" },
+                { "dim": 1, "name": "Net Weight" },
+                { "dim": 2, "name": "Amount" },
+                {
+                    "dim": 3,
+                    "name": "Score",
+                    "type": "category",
+                    "data": ["Excellent", "Good", "OK", "Bad"]
+                }
+            ],
+            "series": {
+                "type": "parallel",
+                "lineStyle": {
+                    "width": 4
+                },
+                "data": [
+                    [12.99, 100, 82, "Good"],
+                    [9.99, 80, 77, "OK"],
+                    [20, 120, 60, "Excellent"]
+                ]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

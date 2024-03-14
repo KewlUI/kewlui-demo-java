@@ -1,0 +1,101 @@
+<Meta description="Transition between pictorialBar and bar" />
+
+<Card xcontrol="card_pictorialBar_bar_transition" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_pictorialBar_bar_transition">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "legend": {
+                "data": ["2015", "2016"]
+            },
+            "tooltip": {
+                "trigger": "axis",
+                "axisPointer": {
+                    "type": "shadow"
+                }
+            },
+            "grid": {
+                "containLabel": true,
+                "left": 20
+            },
+            "yAxis": {
+                "data": ["reindeer", "ship", "plane", "train", "car"],
+                "inverse": true,
+                "axisLine": { "show": false },
+                "axisTick": { "show": false },
+                "axisLabel": {
+                    "margin": 30,
+                    "fontSize": 14
+                },
+                "axisPointer": {
+                    "label": {
+                        "show": true,
+                        "margin": 30
+                    }
+                }
+            },
+            "xAxis": {
+                "splitLine": { "show": false },
+                "axisLabel": { "show": false },
+                "axisTick": { "show": false },
+                "axisLine": { "show": false }
+            },
+            "animationDurationUpdate": 500,
+            "series": [
+                {
+                    "name": "2015",
+                    "id": "bar1",
+                    "type": "pictorialBar",
+                    "label": {
+                        "show": true,
+                        "position": "right",
+                        "offset": [10, 0],
+                        "fontSize": 16
+                    },
+                    "symbolRepeat": true,
+                    "symbolSize": ["80%", "60%"],
+                    "barCategoryGap": "40%",
+                    "universalTransition": {
+                        "enabled": true,
+                        "delay": 0
+                    },
+                    "data": [
+                        { "value": 157, "symbol": "path://M-22.788,24.521c2.08-0.986,3.611-3.905,4.984-5.892" },
+                        { "value": 21, "symbol": "path://M49.592,40.883c-0.053,0.354-0.139,0.697... " },
+                        { "value": 66, "symbol": "path://M1.112,32.559l2.998,1.205l-2.882,2.268..." },
+                        { "value": 78, "symbol": "path://M67.335,33.596L67.335,33.596c-0.002-1.39-1.153-3.183..." },
+                        { "value": 123, "symbol": "path://M16.678,17.086h9.854l-2.703,5.912c5.596,2.428..." }
+                    ]
+                },
+                {
+                    "name": "2016",
+                    "id": "bar2",
+                    "type": "pictorialBar",
+                    "barGap": "10%",
+                    "label": {
+                        "show": true,
+                        "position": "right",
+                        "offset": [10, 0],
+                        "fontSize": 16
+                    },
+                    "symbolRepeat": true,
+                    "symbolSize": ["80%", "60%"],
+                    "universalTransition": {
+                        "enabled": true,
+                        "delay": 0
+                    },
+                    "data": [
+                        { "value": 184, "symbol": "path://M-22.788,24.521c2.08-0.986,3.611-3.905..." },
+                        { "value": 29, "symbol": "path://M49.592,40.883c-0.053,0.354-0.139,0.697..." },
+                        { "value": 73, "symbol": "path://M1.112,32.559l2.998,1.205l-2.882,2.268..." },
+                        { "value": 91, "symbol": "path://M67.335,33.596L67.335,33.596c-0.002-1.39-1.153-3.183..." },
+                        { "value": 95, "symbol": "path://M16.678,17.086h9.854l-2.703,5.912c5.596,2.428..." }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

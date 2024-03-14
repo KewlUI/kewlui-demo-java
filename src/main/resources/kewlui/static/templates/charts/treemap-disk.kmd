@@ -1,0 +1,73 @@
+<Meta description="Disk Usage"/>
+
+<Card xcontrol="card_treemap_disk" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_treemap_disk">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}",
+                "left": "center"
+            },
+            "tooltip": {
+                "formatter": "{b}"
+            },
+            "series": [
+                {
+                    "name": "Disk Usage",
+                    "type": "treemap",
+                    "visibleMin": 300,
+                    "label": {
+                        "show": true,
+                        "formatter": "{b}"
+                    },
+                    "itemStyle": {
+                        "borderColor": "#fff"
+                    },
+                    "levels": [
+                        {
+                            "itemStyle": {
+                                "borderWidth": 0,
+                                "gapWidth": 5
+                            }
+                        },
+                        {
+                            "itemStyle": {
+                                "gapWidth": 1
+                            }
+                        },
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {
+                                "gapWidth": 1,
+                                "borderColorSaturation": 0.6
+                            }
+                        }
+                    ],
+                    "data": [
+                        {
+                            "name": "folder1",
+                            "value": 200,
+                            "children": [
+                                {
+                                    "name": "file1",
+                                    "value": 50
+                                }
+                            ]
+                        },
+                        {
+                            "name": "folder2",
+                            "value": 400,
+                            "children": [
+                                {
+                                    "name": "file2",
+                                    "value": 100
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

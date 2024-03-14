@@ -1,0 +1,23 @@
+<Meta description="Set Style of Single Bar"/>
+
+<Card xcontrol="card_bar_data_color" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_data_color">
+        <![CDATA[
+        {
+            "xAxis": {
+                "type": "category",
+                "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "series": [
+                {
+                    "data": [120, 200, 150, 80, 70, 110, 130],
+                    "type": "bar"
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

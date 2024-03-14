@@ -1,0 +1,63 @@
+<Meta description="From Bottom to Top Tree"/>
+
+<Card xcontrol="card_from_bottom_to_top_tree" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_from_bottom_to_top_tree">
+        <![CDATA[
+        {
+            "tooltip": {
+                "trigger": "item",
+                "triggerOn": "mousemove"
+            },
+            "series": [{
+                "type": "tree",
+                "data": [{
+                    "name": "flare",
+                    "children": [{
+                            "name": "analytics",
+                            "children": [{
+                                "name": "cluster",
+                                "children": [{
+                                    "name": "AgglomerativeCluster",
+                                    "value": 3938
+                                }]
+                            }]
+                        },
+                        {
+                            "name": "Visualization",
+                            "children": [{
+                                "name": "DragNode",
+                                "value": 1080
+                            }]
+                        }
+                    ]
+                }],
+                "left": "2%",
+                "right": "2%",
+                "top": "20%",
+                "bottom": "8%",
+                "symbol": "emptyCircle",
+                "orient": "BT",
+                "expandAndCollapse": true,
+                "label": {
+                    "position": "bottom",
+                    "rotate": 90,
+                    "verticalAlign": "middle",
+                    "align": "right"
+                },
+                "leaves": {
+                    "label": {
+                        "position": "top",
+                        "rotate": 90,
+                        "verticalAlign": "middle",
+                        "align": "left"
+                    }
+                },
+                "emphasis": {
+                    "focus": "descendant"
+                },
+                "animationDurationUpdate": 750
+            }]
+        }
+        ]]>
+    </EChart>
+</Card>

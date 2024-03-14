@@ -1,0 +1,23 @@
+<Meta description="Simple Calendar"/>
+
+<Card xcontrol="card_calendar_simple" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_calendar_simple">
+        <![CDATA[
+        {
+            "visualMap": {
+                "show": false,
+                "min": 0,
+                "max": 10000
+            },
+            "calendar": {
+                "range": "2017"
+            },
+            "series": {
+                "type": "heatmap",
+                "coordinateSystem": "calendar",
+                "data": [["2017-01-01", 6484], ["2017-01-02", 8923], ["2017-01-03", 7361], ["2017-01-04", 1356], ["2017-01-05", 5704], ["2017-01-06", 8425]]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

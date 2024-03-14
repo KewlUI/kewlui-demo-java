@@ -1,0 +1,78 @@
+<Meta description="Line Gradient"/>
+
+<Card xcontrol="card_line_gradient" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line_gradient">
+        <![CDATA[
+        {
+            "visualMap": [
+                {
+                    "show": false,
+                    "type": "continuous",
+                    "seriesIndex": 0,
+                    "min": 0,
+                    "max": 400
+                },
+                {
+                    "show": false,
+                    "type": "continuous",
+                    "seriesIndex": 1,
+                    "dimension": 0,
+                    "min": 0,
+                    "max": 48
+                }
+            ],
+            "title": [
+                {
+                    "left": "center",
+                    "text": "{{chartTitle|}}"
+                },
+                {
+                    "top": "55%",
+                    "left": "center",
+                    "text": "{{chartTitle|}}"
+                }
+            ],
+            "tooltip": {
+                "trigger": "axis"
+            },
+            "xAxis": [
+                {
+                    "data": ["2000/06/05","2000/06/06","2000/06/07","2000/06/08","2000/06/09","2000/06/10"]
+                },
+                {
+                    "data": ["2000/06/05","2000/06/06","2000/06/07","2000/06/08","2000/06/09","2000/06/10"],
+                    "gridIndex": 1
+                }
+            ],
+            "yAxis": [
+                {},
+                {
+                    "gridIndex": 1
+                }
+            ],
+            "grid": [
+                {
+                    "bottom": "60%"
+                },
+                {
+                    "top": "60%"
+                }
+            ],
+            "series": [
+                {
+                    "type": "line",
+                    "showSymbol": false,
+                    "data": [116,129,135,86,73,85]
+                },
+                {
+                    "type": "line",
+                    "showSymbol": false,
+                    "data": [116,129,135,86,73,85],
+                    "xAxisIndex": 1,
+                    "yAxisIndex": 1
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,166 @@
+<Meta description="Scatter Aqi Color"/>
+
+<Card xcontrol="card_scatter_aqi_color" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_scatter_aqi_color">
+        <![CDATA[
+        {
+            "color": ["#dd4444", "#fec42c", "#80F1BE"],
+            "legend": {
+                "top": 10,
+                "data": ["Beijing", "Shanghai", "Guangzhou"],
+                "textStyle": {
+                    "fontSize": 16
+                }
+            },
+            "grid": {
+                "left": "10%",
+                "right": 150,
+                "top": "18%",
+                "bottom": "10%"
+            },
+            "tooltip": {
+                "backgroundColor": "rgba(255,255,255,0.7)",
+                "formatter": "<div style='border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px'>{a} {b}日：{c}</div>AQI Index: {d}<br>PM2.5: {e}<br>PM10: {f}<br>CO: {g}<br>NO2: {h}<br>SO2: {i}<br>"
+            },
+            "xAxis": {
+                "type": "value",
+                "name": "Date",
+                "nameGap": 16,
+                "nameTextStyle": {
+                    "fontSize": 16
+                },
+                "max": 31,
+                "splitLine": {
+                    "show": false
+                }
+            },
+            "yAxis": {
+                "type": "value",
+                "name": "AQI Index",
+                "nameLocation": "end",
+                "nameGap": 20,
+                "nameTextStyle": {
+                    "fontSize": 16
+                },
+                "splitLine": {
+                    "show": false
+                }
+            },
+            "visualMap": [
+                {
+                    "left": "right",
+                    "top": "10%",
+                    "dimension": 2,
+                    "min": 0,
+                    "max": 250,
+                    "itemWidth": 30,
+                    "itemHeight": 120,
+                    "calculable": true,
+                    "precision": 0.1,
+                    "text": ["Circle Size: PM2.5"],
+                    "textGap": 30,
+                    "inRange": {
+                        "symbolSize": [10, 70]
+                    },
+                    "outOfRange": {
+                        "symbolSize": [10, 70],
+                        "color": ["rgba(255,255,255,0.4)"]
+                    },
+                    "controller": {
+                        "inRange": {
+                            "color": ["#c23531"]
+                        },
+                        "outOfRange": {
+                            "color": ["#999"]
+                        }
+                    }
+                },
+                {
+                    "left": "right",
+                    "bottom": "5%",
+                    "dimension": 6,
+                    "min": 0,
+                    "max": 50,
+                    "itemHeight": 120,
+                    "text": ["Lightness: SO2"],
+                    "textGap": 30,
+                    "inRange": {
+                        "colorLightness": [0.9, 0.5]
+                    },
+                    "outOfRange": {
+                        "color": ["rgba(255,255,255,0.4)"]
+                    },
+                    "controller": {
+                        "inRange": {
+                            "color": ["#c23531"]
+                        },
+                        "outOfRange": {
+                            "color": ["#999"]
+                        }
+                    }
+                }
+            ],
+            "series": [
+                {
+                    "name": "Beijing",
+                    "type": "scatter",
+                    "itemStyle": {
+                        "opacity": 0.8,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowOffsetY": 0,
+                        "shadowColor": "rgba(0,0,0,0.3)"
+                    },
+                    "data": [
+                        [1, 55, 9, 56, 0.46, 18, 6, "Good"],
+                        [2, 25, 11, 21, 0.65, 34, 9, "Excellent"],
+                        [3, 56, 7, 63, 0.3, 14, 5, "Good"],
+                        [4, 33, 7, 29, 0.33, 16, 6, "Excellent"],
+                        [5, 42, 24, 44, 0.76, 40, 16, "Excellent"],
+                        [6, 82, 58, 90, 1.77, 68, 33, "Good"],
+                        [7, 74, 49, 77, 1.46, 48, 27, "Good"]
+                    ]
+                },
+                {
+                    "name": "Shanghai",
+                    "type": "scatter",
+                    "itemStyle": {
+                        "opacity": 0.8,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowOffsetY": 0,
+                        "shadowColor": "rgba(0,0,0,0.3)"
+                    },
+                    "data": [
+                        [1, 91, 45, 125, 0.82, 34, 23, "Good"],
+                        [2, 65, 27, 78, 0.86, 45, 29, "Good"],
+                        [3, 83, 60, 84, 1.09, 73, 27, "Good"],
+                        [4, 109, 81, 121, 1.28, 68, 51, "Light Pollution"],
+                        [5, 106, 77, 114, 1.07, 55, 51, "Light Pollution"],
+                        [6, 109, 81, 121, 1.28, 68, 51, "Light Pollution"]
+                    ]
+                },
+                {
+                    "name": "Guangzhou",
+                    "type": "scatter",
+                    "itemStyle": {
+                        "opacity": 0.8,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowOffsetY": 0,
+                        "shadowColor": "rgba(0,0,0,0.3)"
+                    },
+                    "data": [
+                        [1, 26, 37, 27, 1.163, 27, 13, "Excellent"],
+                        [2, 85, 62, 71, 1.195, 60, 8, "Good"],
+                        [3, 78, 38, 74, 1.363, 37, 7, "Good"],
+                        [4, 21, 21, 36, 0.634, 40, 9, "Excellent"],
+                        [5, 41, 42, 46, 0.915, 81, 13, "Excellent"],
+                        [6, 56, 52, 69, 1.067, 92, 16, "Good"]
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

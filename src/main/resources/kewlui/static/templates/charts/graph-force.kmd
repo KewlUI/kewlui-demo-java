@@ -1,0 +1,46 @@
+<Meta description="Force Layout"/>
+
+<Card xcontrol="card_graph_force" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_graph_force">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}",
+                "subtext": "Default layout",
+                "top": "bottom",
+                "left": "right"
+            },
+            "tooltip": {},
+            "legend": [
+                {
+                    "data": ["category1", "category2", "category3"]
+                }
+            ],
+            "series": [
+                {
+                    "name": "Les Miserables",
+                    "type": "graph",
+                    "layout": "force",
+                    "data": [
+                        {"symbolSize": 5},
+                        {"symbolSize": 5},
+                        {"symbolSize": 5}
+                    ],
+                    "links": [
+                        {"source": "node1", "target": "node2"},
+                        {"source": "node2", "target": "node3"}
+                    ],
+                    "categories": ["category1", "category2", "category3"],
+                    "roam": true,
+                    "label": {
+                        "position": "right"
+                    },
+                    "force": {
+                        "repulsion": 100
+                    }
+                }
+            ]
+        }
+      ]]>
+    </EChart>
+</Card>

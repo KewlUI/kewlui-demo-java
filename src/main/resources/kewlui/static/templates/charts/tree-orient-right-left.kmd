@@ -1,0 +1,74 @@
+<Meta description="From Right to Left Tree"/>
+
+<Card xcontrol="card_tree_orient_right_left" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_tree_orient_right_left">
+        <![CDATA[
+        {
+            "tooltip": {
+                "trigger": "item",
+                "triggerOn": "mousemove"
+            },
+            "series": [
+                {
+                    "type": "tree",
+                    "data": [
+                        {
+                            "name": "flare",
+                            "children": [
+                                {
+                                    "name": "analytics",
+                                    "collapsed": true,
+                                    "children": [
+                                        {"name": "cluster", "value": 1833},
+                                        {"name": "aggregate", "value": 550},
+                                        {"name": "pie", "value": 798}
+                                    ]
+                                },
+                                {
+                                    "name": "animation",
+                                    "children": [
+                                        {"name": "Easing", "value": 17010},
+                                        {"name": "FunctionSequence", "value": 5842},
+                                        {"name": "interpolate", "value": 3842}
+                                    ]
+                                },
+                                {
+                                    "name": "data",
+                                    "children": [
+                                        {"name": "converters", "value": 2834},
+                                        {"name": "DataSet", "value": 7714}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "top": "1%",
+                    "left": "15%",
+                    "bottom": "1%",
+                    "right": "7%",
+                    "symbolSize": 7,
+                    "orient": "RL",
+                    "label": {
+                        "position": "right",
+                        "verticalAlign": "middle",
+                        "align": "left"
+                    },
+                    "leaves": {
+                        "label": {
+                            "position": "left",
+                            "verticalAlign": "middle",
+                            "align": "right"
+                        }
+                    },
+                    "emphasis": {
+                        "focus": "descendant"
+                    },
+                    "expandAndCollapse": true,
+                    "animationDuration": 550,
+                    "animationDurationUpdate": 750
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

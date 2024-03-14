@@ -1,0 +1,31 @@
+<Meta description="Graph Dynamic"/>
+
+<Card xcontrol="card_graph_force_dynamic" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_graph_force_dynamic">
+        <![CDATA[
+        {
+            "series": [
+                {
+                    "type": "graph",
+                    "layout": "force",
+                    "animation": false,
+                    "data": [
+                        {
+                            "fixed": true,
+                            "x": 225,
+                            "y": 150,
+                            "symbolSize": 20,
+                            "id": "-1"
+                        }
+                    ],
+                    "force": {
+                        "repulsion": 100,
+                        "edgeLength": 5
+                    },
+                    "edges": []
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,85 @@
+<Meta description="Sankey with Levels Setting"/>
+
+<Card xcontrol="card_sankey_levels" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_sankey_levels">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {
+                "trigger": "item",
+                "triggerOn": "mousemove"
+            },
+            "series": [
+                {
+                    "type": "sankey",
+                    "data": [
+                        {"name": "Node 1"},
+                        {"name": "Node 2"},
+                        {"name": "Node 3"},
+                        {"name": "Node 4"},
+                        {"name": "Node 5"},
+                        {"name": "Node 6"}
+                    ],
+                    "links": [
+                        {"source": "Node 1", "target": "Node 2", "value": 100},
+                        {"source": "Node 2", "target": "Node 3", "value": 200},
+                        {"source": "Node 3", "target": "Node 4", "value": 150},
+                        {"source": "Node 4", "target": "Node 5", "value": 120},
+                        {"source": "Node 5", "target": "Node 6", "value": 180}
+                    ],
+                    "emphasis": {
+                        "focus": "adjacency"
+                    },
+                    "levels": [
+                        {
+                            "depth": 0,
+                            "itemStyle": {
+                                "color": "#fbb4ae"
+                            },
+                            "lineStyle": {
+                                "color": "source",
+                                "opacity": 0.6
+                            }
+                        },
+                        {
+                            "depth": 1,
+                            "itemStyle": {
+                                "color": "#b3cde3"
+                            },
+                            "lineStyle": {
+                                "color": "source",
+                                "opacity": 0.6
+                            }
+                        },
+                        {
+                            "depth": 2,
+                            "itemStyle": {
+                                "color": "#ccebc5"
+                            },
+                            "lineStyle": {
+                                "color": "source",
+                                "opacity": 0.6
+                            }
+                        },
+                        {
+                            "depth": 3,
+                            "itemStyle": {
+                                "color": "#decbe4"
+                            },
+                            "lineStyle": {
+                                "color": "source",
+                                "opacity": 0.6
+                            }
+                        }
+                    ],
+                    "lineStyle": {
+                        "curveness": 0.5
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

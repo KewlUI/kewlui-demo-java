@@ -1,0 +1,55 @@
+<Meta description="ECharts Option Query"/>
+
+<Card xcontrol="card_treemap_drill_down" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_treemap_drill_down">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {},
+            "series": [
+                {
+                    "name": "option",
+                    "type": "treemap",
+                    "visibleMin": 300,
+                    "data": [
+                        {
+                            "name": "children",
+                            "value": 1
+                        }
+                    ],
+                    "leafDepth": 2,
+                    "levels": [
+                        {
+                            "itemStyle": {
+                                "borderColor": "#555",
+                                "borderWidth": 4,
+                                "gapWidth": 4
+                            }
+                        },
+                        {
+                            "colorSaturation": [0.3, 0.6],
+                            "itemStyle": {
+                                "borderColorSaturation": 0.7,
+                                "gapWidth": 2,
+                                "borderWidth": 2
+                            }
+                        },
+                        {
+                            "colorSaturation": [0.3, 0.5],
+                            "itemStyle": {
+                                "borderColorSaturation": 0.6,
+                                "gapWidth": 1
+                            }
+                        },
+                        {
+                            "colorSaturation": [0.3, 0.5]
+                        }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

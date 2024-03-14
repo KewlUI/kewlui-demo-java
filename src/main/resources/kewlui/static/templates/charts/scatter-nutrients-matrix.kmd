@@ -1,0 +1,353 @@
+<Meta description="Scatter Nutrients Matrix"/>
+
+<Card xcontrol="card_scatter_nutrients_matrix"    height="300px" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start" >
+    <EChart  width="350px" height="300px" xcontrol="chart_scatter_nutrients_matrix">
+    <![CDATA[
+        {
+            "xAxis": [
+                {
+                    "id": "xAxisLeft-yAxisTop",
+                    "name": "carbohydrate",
+                    "nameLocation": "middle",
+                    "nameGap": 30,
+                    "gridId": "xAxisLeft-yAxisTop",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#2A8339"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#2A8339"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#2A8339"
+                        }
+                    }
+                },
+                {
+                    "id": "xAxisLeft-yAxisBottom",
+                    "name": "carbohydrate",
+                    "nameLocation": "middle",
+                    "nameGap": 30,
+                    "gridId": "xAxisLeft-yAxisBottom",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#2A8339"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#2A8339"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#2A8339"
+                        }
+                    }
+                },
+                {
+                    "id": "xAxisRight-yAxisTop",
+                    "name": "potassium",
+                    "nameLocation": "middle",
+                    "nameGap": 30,
+                    "gridId": "xAxisRight-yAxisTop",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#367DA6"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#367DA6"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#367DA6"
+                        }
+                    }
+                },
+                {
+                    "id": "xAxisRight-yAxisBottom",
+                    "name": "potassium",
+                    "nameLocation": "middle",
+                    "nameGap": 30,
+                    "gridId": "xAxisRight-yAxisBottom",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#367DA6"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#367DA6"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#367DA6"
+                        }
+                    }
+                }
+            ],
+            "yAxis": [
+                {
+                    "id": "xAxisLeft-yAxisTop",
+                    "name": "calcium",
+                    "nameLocation": "end",
+                    "nameGap": 10,
+                    "gridId": "xAxisLeft-yAxisTop",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#A68B36"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    }
+                },
+                {
+                    "id": "xAxisLeft-yAxisBottom",
+                    "name": "fiber",
+                    "nameLocation": "end",
+                    "nameGap": 10,
+                    "gridId": "xAxisLeft-yAxisBottom",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#A68B36"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    }
+                },
+                {
+                    "id": "xAxisRight-yAxisTop",
+                    "name": "calcium",
+                    "nameLocation": "end",
+                    "nameGap": 10,
+                    "gridId": "xAxisRight-yAxisTop",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#A68B36"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    }
+                },
+                {
+                    "id": "xAxisRight-yAxisBottom",
+                    "name": "fiber",
+                    "nameLocation": "end",
+                    "nameGap": 10,
+                    "gridId": "xAxisRight-yAxisBottom",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    },
+                    "axisLabel": {
+                        "color": "#A68B36"
+                    },
+                    "axisTick": {
+                        "lineStyle": {
+                            "color": "#A68B36"
+                        }
+                    }
+                }
+            ],
+            "grid": [
+                {
+                    "id": "xAxisLeft-yAxisTop",
+                    "left": 80,
+                    "top": 50,
+                    "width": "35%",
+                    "height": "35%"
+                },
+                {
+                    "id": "xAxisLeft-yAxisBottom",
+                    "left": 80,
+                    "bottom": 80,
+                    "width": "35%",
+                    "height": "35%"
+                },
+                {
+                    "id": "xAxisRight-yAxisTop",
+                    "right": 50,
+                    "top": 50,
+                    "width": "35%",
+                    "height": "35%"
+                },
+                {
+                    "id": "xAxisRight-yAxisBottom",
+                    "right": 50,
+                    "bottom": 80,
+                    "width": "35%",
+                    "height": "35%"
+                }
+            ],
+            "dataZoom": [
+                {
+                    "type": "slider",
+                    "filterMode": "empty",
+                    "realtime": false,
+                    "width": "35%",
+                    "height": 20,
+                    "left": 80,
+                    "bottom": 10,
+                    "xAxisIndex": [0, 1]
+                },
+                {
+                    "type": "slider",
+                    "filterMode": "empty",
+                    "realtime": false,
+                    "width": "35%",
+                    "height": 20,
+                    "right": 50,
+                    "bottom": 10,
+                    "xAxisIndex": [2, 3]
+                },
+                {
+                    "type": "slider",
+                    "filterMode": "empty",
+                    "realtime": false,
+                    "orient": "vertical",
+                    "width": 20,
+                    "height": "35%",
+                    "left": 10,
+                    "top": 50,
+                    "yAxisIndex": [0, 2]
+                },
+                {
+                    "type": "slider",
+                    "filterMode": "empty",
+                    "realtime": false,
+                    "orient": "vertical",
+                    "width": 20,
+                    "height": "35%",
+                    "left": 10,
+                    "bottom": 80,
+                    "yAxisIndex": [1, 3]
+                }
+            ],
+            "visualMap": [
+                {
+                    "show": false,
+                    "type": "piecewise",
+                    "categories": ["group1", "group2", "group3"],
+                    "dimension": 2,
+                    "inRange": {
+                        "color": ["#5A94DF", "#7F63A1", "#FFB554"]
+                    },
+                    "outOfRange": {
+                        "color": ["#ccc"]
+                    },
+                    "top": 20,
+                    "textStyle": {
+                        "color": "#fff"
+                    },
+                    "realtime": false
+                }
+            ],
+            "series": [
+                {
+                    "zlevel": 1,
+                    "type": "scatter",
+                    "name": "nutrients",
+                    "xAxisId": "xAxisLeft-yAxisTop",
+                    "yAxisId": "xAxisLeft-yAxisTop",
+                    "symbolSize": 8,
+                    "emphasis": {
+                        "itemStyle": {
+                            "color": "#fff"
+                        }
+                    },
+                    "data": []
+                },
+                {
+                    "zlevel": 1,
+                    "type": "scatter",
+                    "name": "nutrients",
+                    "xAxisId": "xAxisLeft-yAxisBottom",
+                    "yAxisId": "xAxisLeft-yAxisBottom",
+                    "symbolSize": 8,
+                    "emphasis": {
+                        "itemStyle": {
+                            "color": "#fff"
+                        }
+                    },
+                    "data": []
+                },
+                {
+                    "zlevel": 1,
+                    "type": "scatter",
+                    "name": "nutrients",
+                    "xAxisId": "xAxisRight-yAxisTop",
+                    "yAxisId": "xAxisRight-yAxisTop",
+                    "symbolSize": 8,
+                    "emphasis": {
+                        "itemStyle": {
+                            "color": "#fff"
+                        }
+                    },
+                    "data": []
+                },
+                {
+                    "zlevel": 1,
+                    "type": "scatter",
+                    "name": "nutrients",
+                    "xAxisId": "xAxisRight-yAxisBottom",
+                    "yAxisId": "xAxisRight-yAxisBottom",
+                    "symbolSize": 8,
+                    "emphasis": {
+                        "itemStyle": {
+                            "color": "#fff"
+                        }
+                    },
+                    "data": []
+                }
+            ],
+            "animationThreshold": 5000,
+            "progressiveThreshold": 5000,
+            "animationEasingUpdate": "cubicInOut",
+            "animationDurationUpdate": 2000
+        }
+    ]]>
+    </EChart>
+</Card>

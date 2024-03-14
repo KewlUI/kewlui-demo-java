@@ -1,0 +1,16 @@
+<Meta description="An simple login form  with a picture in the upper part.  The picture is in a circle, using image https://images.pexels.com/photos/3585089/pexels-photo-3585089.jpeg "/>
+
+<VStack xcontrol="loginPage" minWidth="350px" width="100px" height="100%" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" spacing={6}  >
+
+  <Box xcontrol="imageContainer" boxSize="150px" overflow="hidden" borderRadius="full" border="2px" borderColor="theme.colors.accent" justify="stretch">
+    <Image src="https://images.pexels.com/photos/3585089/pexels-photo-3585089.jpeg" alt="Login Page Image" boxSize="150px" objectFit="cover"/>
+  </Box>
+
+  <VStack width="90%" alignItems="center">
+    <Markdown textAlign="center" >{{SiteName}}</Markdown>
+    <FormInput xcontrol="emailInput" placeholder="Enter your email" text="Email:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText" />
+    <FormInput xcontrol="passwordInput" placeholder="Enter your password" text="Password:" type="password" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+    <Button xcontrol="loginButton" bgColor="theme.colors.primary" color="theme.colors.primaryText">Log In</Button>
+    <Text xcontrol="errorText" color='red'/>
+  </VStack>
+</VStack>

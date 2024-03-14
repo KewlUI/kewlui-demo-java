@@ -1,0 +1,162 @@
+<Meta description="Watermark - ECharts Download"/>
+
+<Card xcontrol="card_watermark" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_watermark">
+        <![CDATA[
+        {
+            "backgroundColor": {
+                "type": "pattern",
+                "repeat": "repeat"
+            },
+            "tooltip": {},
+            "title": [
+                {
+                    "text": "{{chartTitle|}}",
+                    "subtext": "Total 10887",
+                    "left": "25%",
+                    "textAlign": "center"
+                },
+                {
+                    "text": "Downloaded Versions",
+                    "subtext": "Total 43363",
+                    "left": "75%",
+                    "textAlign": "center"
+                },
+                {
+                    "text": "Theme Downloads",
+                    "subtext": "Total 7839",
+                    "left": "75%",
+                    "top": "50%",
+                    "textAlign": "center"
+                }
+            ],
+            "grid": [
+                {
+                    "top": 50,
+                    "width": "50%",
+                    "bottom": "45%",
+                    "left": 10,
+                    "containLabel": true
+                },
+                {
+                    "top": "55%",
+                    "width": "50%",
+                    "bottom": 0,
+                    "left": 10,
+                    "containLabel": true
+                }
+            ],
+            "xAxis": [
+                {
+                    "type": "value",
+                    "max": 10887,
+                    "splitLine": {
+                        "show": false
+                    }
+                },
+                {
+                    "type": "value",
+                    "max": 10887,
+                    "gridIndex": 1,
+                    "splitLine": {
+                        "show": false
+                    }
+                }
+            ],
+            "yAxis": [
+                {
+                    "type": "category",
+                    "data": ["map", "lines", "bar", "line", "pie", "scatter"],
+                    "axisLabel": {
+                        "interval": 0,
+                        "rotate": 30
+                    },
+                    "splitLine": {
+                        "show": false
+                    }
+                },
+                {
+                    "gridIndex": 1,
+                    "type": "category",
+                    "data": ["geo", "title", "legend", "tooltip", "grid", "markPoint"],
+                    "axisLabel": {
+                        "interval": 0,
+                        "rotate": 30
+                    },
+                    "splitLine": {
+                        "show": false
+                    }
+                }
+            ],
+            "series": [
+                {
+                    "type": "bar",
+                    "stack": "chart",
+                    "z": 3,
+                    "label": {
+                        "position": "right",
+                        "show": true
+                    },
+                    "data": [3237, 2164, 7561, 7778, 7355, 2405]
+                },
+                {
+                    "type": "bar",
+                    "stack": "chart",
+                    "silent": true,
+                    "itemStyle": {
+                        "color": "#eee"
+                    },
+                    "data": [7649, 8723, 3326, 3109, 352, 8478]
+                },
+                {
+                    "type": "bar",
+                    "stack": "component",
+                    "xAxisIndex": 1,
+                    "yAxisIndex": 1,
+                    "z": 3,
+                    "label": {
+                        "position": "right",
+                        "show": true
+                    },
+                    "data": [2788, 9575, 9400, 9466, 9266, 3419]
+                },
+                {
+                    "type": "bar",
+                    "stack": "component",
+                    "silent": true,
+                    "xAxisIndex": 1,
+                    "yAxisIndex": 1,
+                    "itemStyle": {
+                        "color": "#eee"
+                    },
+                    "data": [7899, 1303, 1687, 1577, 1401, 8826]
+                },
+                {
+                    "type": "pie",
+                    "radius": [0, "30%"],
+                    "center": ["75%", "25%"],
+                    "data": [
+                        { "name": "echarts.min.js", "value": 17365 },
+                        { "name": "echarts.simple.min.js", "value": 4079 },
+                        { "name": "echarts.common.min.js", "value": 6929 },
+                        { "name": "echarts.js", "value": 14890 }
+                    ]
+                },
+                {
+                    "type": "pie",
+                    "radius": [0, "30%"],
+                    "center": ["75%", "75%"],
+                    "data": [
+                        { "name": "dark.js", "value": 1594 },
+                        { "name": "infographic.js", "value": 925 },
+                        { "name": "shine.js", "value": 1608 },
+                        { "name": "roma.js", "value": 721 },
+                        { "name": "macarons.js", "value": 2179 },
+                        { "name": "vintage.js", "value": 1982 }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,36 @@
+<Meta description="Simple Gauge"/>
+
+<Card xcontrol="card_gauge_simple" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_gauge_simple">
+        <![CDATA[
+        {
+            "tooltip": {
+                "trigger": "axis",
+                "position": ["200", "10%"]
+            },
+            "title": {
+                "left": "center",
+                "text": "{{chartTitle|}}"
+            },
+            "series": [
+                {
+                    "name": "Pressure",
+                    "type": "gauge",
+                    "progress": {
+                        "show": true
+                    },
+                    "detail": {
+                        "value": "{value}"
+                    },
+                    "data": [
+                        {
+                            "value": 50,
+                            "name": "SCORE"
+                        }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

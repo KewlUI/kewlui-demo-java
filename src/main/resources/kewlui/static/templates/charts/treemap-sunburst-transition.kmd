@@ -1,0 +1,41 @@
+<Meta description="Transition between Treemap and Sunburst"/>
+
+<Card xcontrol="card_treemap_sunburst_transition" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_treemap_sunburst_transition">
+        <![CDATA[
+        {
+            "series": [
+                {
+                    "type": "treemap",
+                    "id": "echarts-package-size",
+                    "animationDurationUpdate": 1000,
+                    "roam": false,
+                    "nodeClick": null,
+                    "data": [
+                        {
+                            "name": "echarts",
+                            "value": 278,
+                            "children": [
+                                {"name": "echarts.js", "value": 169},
+                                {"name": "echarts-gl.js", "value": 112},
+                                {"name": "echarts-wordcloud.js", "value": 92}
+                            ]
+                        },
+                        {
+                            "name": "zrender",
+                            "value": 676
+                        }
+                    ],
+                    "universalTransition": true,
+                    "label": {
+                        "show": true
+                    },
+                    "breadcrumb": {
+                        "show": false
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

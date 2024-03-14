@@ -1,0 +1,105 @@
+<Meta description="Water Content"/>
+
+<Card xcontrol="card_pictorialBar_body_fill" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_pictorialBar_body_fill">
+        <![CDATA[
+        {
+          "tooltip": {},
+          "legend": {
+            "data": ["typeA", "typeB"],
+            "selectedMode": "single"
+          },
+          "xAxis": {
+            "data": ["a", "b", "c", "d", "e"],
+            "axisTick": {"show": false},
+            "axisLine": {"show": false},
+            "axisLabel": {"show": false}
+          },
+          "yAxis": {
+            "max": 150,
+            "offset": 20,
+            "splitLine": { "show": false }
+          },
+          "grid": {
+            "top": "center",
+            "height": 230
+          },
+          "markLine": {
+            "z": -100,
+            "symbol": "none",
+            "lineStyle": {
+              "opacity": 0.3
+            },
+            "data": [
+              { "type": "max", "label": { "formatter": "max: {c}" } },
+              { "type": "min", "label": { "formatter": "min: {c}" } }
+            ]
+          },
+          "series": [
+            {
+              "name": "typeA",
+              "type": "pictorialBar",
+              "symbolClip": true,
+              "symbolBoundingData": 150,
+              "label": { "show": true, "position": "top", "offset": [0, -20], "formatter": "{{valuePercentage|}}%", "fontSize": 18, "fontFamily": "Arial" },
+              "data": [
+                { "value": 123, "symbol": "path://M36.7,102.84c-1.17,2.54-2.99,4.98-3.39,7.63c-1.51,9.89-3.31,19.58-1.93,29.95..." },
+                { "value": 34, "symbol": "path://M40.02,-99c2.07,1.21,4.26,2.25,6.19,3.66c5.94,4.34,8.23,12.57,4.95,19.79..." },
+                { "value": 101, "symbol": "path://M-39,33.03c3.72-9.74,12.97-12.87,20.96-17.43c9.51-5.43,19.2-10.54,28.69-16..." },
+                { "value": 89, "symbol": "path://M80,100.49c0,5.23,0.13,10.46-0.03,15.69c-0.2,6.3-0.57,12.6-0.99,18.9..." },
+                { "value": 72, "symbol": "path://M-57,41.03c3.65-4.15,7.17-8.43,10.98-12.42c6.53-6.83,13.31-13.41,19.84-20.23..." }
+              ],
+              "markLine": {
+                "z": -100,
+                "symbol": "none",
+                "lineStyle": { "opacity": 0.3 },
+                "data": [
+                  { "type": "max", "label": { "formatter": "max: {c}" } },
+                  { "type": "min", "label": { "formatter": "min: {c}" } }
+                ]
+              },
+              "z": 10
+            },
+            {
+              "name": "typeB",
+              "type": "pictorialBar",
+              "symbolClip": true,
+              "symbolBoundingData": 150,
+              "label": { "show": true, "position": "top", "offset": [0, -20], "formatter": "{{valuePercentage|}}%", "fontSize": 18, "fontFamily": "Arial" },
+              "data": [
+                { "value": 12, "symbol": "path://M36.7,102.84c-1.17,2.54-2.99,4.98-3.39,7.63c-1.51,9.89-3.31,19.58-1.93,29.95..." },
+                { "value": 44, "symbol": "path://M40.02,-99c2.07,1.21,4.26,2.25,6.19,3.66c5.94,4.34,8.23,12.57,4.95,19.79..." },
+                { "value": 131, "symbol": "path://M-39,33.03c3.72-9.74,12.97-12.87,20.96-17.43c9.51-5.43,19.2-10.54,28.69-16..." },
+                { "value": 33, "symbol": "path://M80,100.49c0,5.23,0.13,10.46-0.03,15.69c-0.2,6.3-0.57,12.6-0.99,18.9..." },
+                { "value": 142, "symbol": "path://M-57,41.03c3.65-4.15,7.17-8.43,10.98-12.42c6.53-6.83,13.31-13.41,19.84-20.23..." }
+              ],
+              "markLine": {
+                "z": -100,
+                "symbol": "none",
+                "lineStyle": { "opacity": 0.3 },
+                "data": [
+                  { "type": "max", "label": { "formatter": "max: {c}" } },
+                  { "type": "min", "label": { "formatter": "min: {c}" } }
+                ]
+              },
+              "z": 10
+            },
+            {
+              "name": "full",
+              "type": "pictorialBar",
+              "symbolBoundingData": 150,
+              "animationDuration": 0,
+              "itemStyle": { "color": "#ccc" },
+              "data": [
+                { "value": 1, "symbol": "path://M36.7,102.84c-1.17,2.54-2.99,4.98-3.39,7.63c-1.51,9.89-3.31,19.58-1.93,29.95..." },
+                { "value": 1, "symbol": "path://M40.02,-99c2.07,1.21,4.26,2.25,6.19,3.66c5.94,4.34,8.23,12.57,4.95,19.79..." },
+                { "value": 1, "symbol": "path://M-39,33.03c3.72-9.74,12.97-12.87,20.96-17.43c9.51-5.43,19.2-10.54,28.69-16..." },
+                { "value": 1, "symbol": "path://M80,100.49c0,5.23,0.13,10.46-0.03,15.69c-0.2,6.3-0.57,12.6-0.99,18.9..." },
+                { "value": 1, "symbol": "path://M-57,41.03c3.65-4.15,7.17-8.43,10.98-12.42c6.53-6.83,13.31-13.41,19.84-20.23..." }
+              ]
+            }
+          ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,128 @@
+<Meta description="Tooltip and DataZoom on Mobile"/>
+
+<Card xcontrol="card_line_tooltip_touch" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line_tooltip_touch">
+        <![CDATA[
+        {
+            "title": {
+                "left": "center",
+                "text": "{{chartTitle|}}"
+            },
+            "legend": {
+                "top": "bottom",
+                "data": ["Intention"]
+            },
+            "tooltip": {
+                "triggerOn": "none",
+                "position": ["200", "130"]
+            },
+            "toolbox": {
+                "left": "center",
+                "itemSize": 25,
+                "top": 55,
+                "feature": {
+                    "dataZoom": {
+                        "yAxisIndex": "none"
+                    },
+                    "restore": {}
+                }
+            },
+            "xAxis": {
+                "type": "time",
+                "axisPointer": {
+                    "value": "2016-10-7",
+                    "snap": true,
+                    "lineStyle": {
+                        "color": "#7581BD",
+                        "width": 2
+                    },
+                    "label": {
+                        "show": true,
+                        "backgroundColor": "#7581BD"
+                    },
+                    "handle": {
+                        "show": true,
+                        "color": "#7581BD"
+                    }
+                },
+                "splitLine": {
+                    "show": false
+                }
+            },
+            "yAxis": {
+                "type": "value",
+                "axisTick": {
+                    "inside": true
+                },
+                "splitLine": {
+                    "show": false
+                },
+                "axisLabel": {
+                    "inside": true
+                },
+                "z": 10
+            },
+            "grid": {
+                "top": 110,
+                "left": 15,
+                "right": 15,
+                "height": 160
+            },
+            "dataZoom": [
+                {
+                    "type": "inside",
+                    "throttle": 50
+                }
+            ],
+            "series": [
+                {
+                    "name": "Fake Data",
+                    "type": "line",
+                    "smooth": true,
+                    "symbol": "circle",
+                    "symbolSize": 5,
+                    "sampling": "average",
+                    "itemStyle": {
+                        "color": "#0770FF"
+                    },
+                    "stack": "a",
+                    "areaStyle": {
+                        "color": {
+                            "type": "linear",
+                            "x": 0,
+                            "y": 0,
+                            "x2": 0,
+                            "y2": 1,
+                            "colorStops": [{"offset": 0, "color": "rgba(58,77,233,0.8)"}, {"offset": 1, "color": "rgba(58,77,233,0.3)"}]
+                        }
+                    },
+                    "data": [["2016-10-4", 295], ["2016-10-5", 272], ["2016-10-6", 254], ["2016-10-7", 232], ["2016-10-8", 249], ["2016-10-9", 264], ["2016-10-10", 280], ["2016-10-11", 259], ["2016-10-12", 271]]
+                },
+                {
+                    "name": "Fake Data",
+                    "type": "line",
+                    "smooth": true,
+                    "symbol": "circle",
+                    "symbolSize": 5,
+                    "sampling": "average",
+                    "itemStyle": {
+                        "color": "#F2597F"
+                    },
+                    "stack": "a",
+                    "areaStyle": {
+                        "color": {
+                            "type": "linear",
+                            "x": 0,
+                            "y": 0,
+                            "x2": 0,
+                            "y2": 1,
+                            "colorStops": [{"offset": 0, "color": "rgba(213,72,120,0.8)"}, {"offset": 1, "color": "rgba(213,72,120,0.3)"}]
+                        }
+                    },
+                    "data": [["2016-10-4", 13], ["2016-10-5", 1], ["2016-10-6", 5], ["2016-10-7", 10], ["2016-10-8", 31], ["2016-10-9", 28], ["2016-10-10", 24], ["2016-10-11", 4], ["2016-10-12", 48]]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

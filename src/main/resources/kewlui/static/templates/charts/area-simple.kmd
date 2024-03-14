@@ -1,0 +1,73 @@
+<Meta description="Large scale area chart"/>
+
+<Card xcontrol="card_area_simple" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_area_simple">
+        <![CDATA[
+        {
+            "tooltip": {
+                "trigger": "axis",
+                "position": ["200", "10%"]
+            },
+            "title": {
+                "left": "center",
+                "text": "{{chartTitle|}}"
+            },
+            "toolbox": {
+                "feature": {
+                    "dataZoom": {
+                        "yAxisIndex": "none"
+                    },
+                    "restore": {},
+                    "saveAsImage": {}
+                }
+            },
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": false,
+                "data": ["1968/10/4", "1968/10/5", "1968/10/6", "1968/10/7", "1968/10/8", "1968/10/9"]
+            },
+            "yAxis": {
+                "type": "value",
+                "boundaryGap": [0, "100%"]
+            },
+            "dataZoom": [
+                {
+                    "type": "inside",
+                    "start": 0,
+                    "end": 10
+                },
+                {
+                    "start": 0,
+                    "end": 10
+                }
+            ],
+            "series": [
+                {
+                    "name": "Fake Data",
+                    "type": "line",
+                    "symbol": "none",
+                    "sampling": "lttb",
+                    "itemStyle": {
+                        "color": "rgb(255, 70, 131)"
+                    },
+                    "areaStyle": {
+                        "color": {
+                            "type": "linear",
+                            "x": 0,
+                            "y": 0,
+                            "x2": 0,
+                            "y2": 1,
+                            "colorStops": [
+                                {"offset": 0, "color": "rgb(255, 158, 68)"},
+                                {"offset": 1, "color": "rgb(255, 70, 131)"}
+                            ],
+                            "global": false
+                        }
+                    },
+                    "data": [283, 302, 298, 311, 290, 308]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,113 @@
+<Meta description="Multiple Categories"/>
+
+<Card xcontrol="card_boxplot_multi" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_boxplot_multi">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}",
+                "left": "center"
+            },
+            "dataset": [
+                {
+                    "source": [
+                        [183.13,28.25,55.75,163.13,76.80,157.19],
+                        [75.37,25.41,181.62,30.20,24.42,169.01]
+                    ]
+                },
+                {
+                    "source": [
+                        [185.97,126.98,94.12,57.08,153.05,193.31],
+                        [148.14,95.69,117.74,116.58,129.99,47.61]
+                    ]
+                },
+                {
+                    "source": [
+                        [16.08,33.42,130.83,116.77,119.42,9.88],
+                        [58.50,154.98,31.80,97.69,107.49,15.76]
+                    ]
+                },
+                {
+                    "fromDatasetIndex": 0,
+                    "transform": {"type": "boxplot"}
+                },
+                {
+                    "fromDatasetIndex": 1,
+                    "transform": {"type": "boxplot"}
+                },
+                {
+                    "fromDatasetIndex": 2,
+                    "transform": {"type": "boxplot"}
+                }
+            ],
+            "legend": {
+                "top": "10%"
+            },
+            "tooltip": {
+                "trigger": "item",
+                "axisPointer": {
+                    "type": "shadow"
+                }
+            },
+            "grid": {
+                "left": "10%",
+                "top": "20%",
+                "right": "10%",
+                "bottom": "15%"
+            },
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": true,
+                "nameGap": 30,
+                "splitArea": {
+                    "show": true
+                },
+                "splitLine": {
+                    "show": false
+                }
+            },
+            "yAxis": {
+                "type": "value",
+                "name": "Value",
+                "min": -400,
+                "max": 600,
+                "splitArea": {
+                    "show": false
+                }
+            },
+            "dataZoom": [
+                {
+                    "type": "inside",
+                    "start": 0,
+                    "end": 20
+                },
+                {
+                    "show": true,
+                    "type": "slider",
+                    "top": "90%",
+                    "xAxisIndex": [0],
+                    "start": 0,
+                    "end": 20
+                }
+            ],
+            "series": [
+                {
+                    "name": "category0",
+                    "type": "boxplot",
+                    "datasetIndex": 3
+                },
+                {
+                    "name": "category1",
+                    "type": "boxplot",
+                    "datasetIndex": 4
+                },
+                {
+                    "name": "category2",
+                    "type": "boxplot",
+                    "datasetIndex": 5
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

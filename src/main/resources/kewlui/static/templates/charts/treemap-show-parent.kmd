@@ -1,0 +1,85 @@
+<Meta description="Show Parent Labels"/>
+
+<Card xcontrol="card_treemap_show_parent" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_treemap_show_parent">
+        <![CDATA[
+        {
+            "title": {
+                "left": "center",
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {
+                "formatter": "Tooltip content"
+            },
+            "series": [
+                {
+                    "name": "Disk Usage",
+                    "type": "treemap",
+                    "visibleMin": 300,
+                    "label": {
+                        "show": true,
+                        "formatter": "{b}"
+                    },
+                    "upperLabel": {
+                        "show": true,
+                        "height": 30
+                    },
+                    "itemStyle": {
+                        "borderColor": "#fff"
+                    },
+                    "levels": [
+                        {
+                            "itemStyle": {
+                                "borderColor": "#777",
+                                "borderWidth": 0,
+                                "gapWidth": 1
+                            },
+                            "upperLabel": {
+                                "show": false
+                            }
+                        },
+                        {
+                            "itemStyle": {
+                                "borderColor": "#555",
+                                "borderWidth": 5,
+                                "gapWidth": 1
+                            },
+                            "emphasis": {
+                                "itemStyle": {
+                                    "borderColor": "#ddd"
+                                }
+                            }
+                        },
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {
+                                "borderWidth": 5,
+                                "gapWidth": 1,
+                                "borderColorSaturation": 0.6
+                            }
+                        }
+                    ],
+                    "data": [
+                        {
+                            "name": "Root",
+                            "value": 1200
+                        },
+                        {
+                            "name": "Folder1",
+                            "value": 400
+                        },
+                        {
+                            "name": "Folder2",
+                            "value": 300
+                        },
+                        {
+                            "name": "Folder3",
+                            "value": 500
+                        }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

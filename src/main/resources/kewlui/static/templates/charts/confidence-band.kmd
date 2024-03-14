@@ -1,0 +1,89 @@
+<Meta description="Confidence Band"/>
+
+<Card xcontrol="card_confidence_band" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_confidence_band">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}",
+                "subtext": "Example in MetricsGraphics.js",
+                "left": "center"
+            },
+            "tooltip": {
+                "trigger": "axis",
+                "axisPointer": {
+                    "type": "cross",
+                    "animation": false,
+                    "label": {
+                        "backgroundColor": "#ccc",
+                        "borderColor": "#aaa",
+                        "borderWidth": 1,
+                        "shadowBlur": 0,
+                        "shadowOffsetX": 0,
+                        "shadowOffsetY": 0,
+                        "color": "#222"
+                    }
+                }
+            },
+            "grid": {
+                "left": "3%",
+                "right": "4%",
+                "bottom": "3%",
+                "containLabel": true
+            },
+            "xAxis": {
+                "type": "category",
+                "data": ["2019-01-01", "2019-01-02", "2019-01-03", "2019-01-04", "2019-01-05", "2019-01-06"],
+                "axisLabel": {
+                    "formatter": "Month-Day"
+                },
+                "boundaryGap": false
+            },
+            "yAxis": {
+                "axisLabel": {
+                    "formatter": "value"
+                },
+                "axisPointer": {
+                    "label": {
+                        "formatter": "value %"
+                    }
+                },
+                "splitNumber": 3
+            },
+            "series": [
+                {
+                    "name": "L",
+                    "type": "line",
+                    "data": [100, 150, 130, 160, 140, 155],
+                    "lineStyle": {
+                        "opacity": 0
+                    },
+                    "stack": "confidence-band",
+                    "symbol": "none"
+                },
+                {
+                    "name": "U",
+                    "type": "line",
+                    "data": [20, 30, 25, 35, 28, 33],
+                    "lineStyle": {
+                        "opacity": 0
+                    },
+                    "areaStyle": {
+                        "color": "#ccc"
+                    },
+                    "stack": "confidence-band",
+                    "symbol": "none"
+                },
+                {
+                    "type": "line",
+                    "data": [120, 140, 135, 155, 145, 150],
+                    "itemStyle": {
+                        "color": "#333"
+                    },
+                    "showSymbol": false
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

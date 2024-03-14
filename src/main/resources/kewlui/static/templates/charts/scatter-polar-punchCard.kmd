@@ -1,0 +1,52 @@
+<Meta description="Punch Card of Github"/>
+
+<Card xcontrol="card_scatter_polar_punchCard"  bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_scatter_polar_punchCard">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "legend": {
+                "data": ["Punch Card"],
+                "left": "right"
+            },
+            "polar": {},
+            "tooltip": {
+                "formatter": "params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]]"
+            },
+            "angleAxis": {
+                "type": "category",
+                "data": ["12a", "1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p"],
+                "boundaryGap": false,
+                "splitLine": {
+                    "show": true
+                },
+                "axisLine": {
+                    "show": false
+                }
+            },
+            "radiusAxis": {
+                "type": "category",
+                "data": ["Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday", "Sunday"],
+                "axisLine": {
+                    "show": false
+                },
+                "axisLabel": {
+                    "rotate": 45
+                }
+            },
+            "series": [
+                {
+                    "name": "Punch Card",
+                    "type": "scatter",
+                    "coordinateSystem": "polar",
+                    "symbolSize": 10,
+                    "data": [[0,0,5],[0,1,1],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,0],[0,8,0],[0,9,0],[0,10,0],[0,11,2],[0,12,4],[0,13,1],[0,14,1],[0,15,3],[0,16,4],[0,17,6],[0,18,4],[0,19,4]],
+                    "animationDelay": 0
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,124 @@
+<Meta description="Wish List and Mountain Height"/>
+
+<Card xcontrol="card_pictorialBar_hill" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_pictorialBar_hill">
+        <![CDATA[
+        {
+            "backgroundColor": "#0f375f",
+            "tooltip": {},
+            "legend": {
+                "textStyle": { "color": "#ddd" }
+            },
+            "xAxis": [
+                {
+                    "data": ["Christmas Wish List", "", "Qomolangma", "Kilimanjaro"],
+                    "axisTick": { "show": false },
+                    "axisLine": { "show": false },
+                    "axisLabel": {
+                        "margin": 20,
+                        "color": "#ddd",
+                        "fontSize": 14
+                    }
+                }
+            ],
+            "yAxis": {
+                "splitLine": { "show": false },
+                "axisTick": { "show": false },
+                "axisLine": { "show": false },
+                "axisLabel": { "show": false }
+            },
+            "markLine": {
+                "z": -1
+            },
+            "animationEasing": "elasticOut",
+            "series": [
+                {
+                    "type": "pictorialBar",
+                    "name": "All",
+                    "emphasis": {
+                        "scale": true
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "top",
+                        "text": "{{chartTitle|}}",
+                        "fontSize": 16,
+                        "color": "#e54035"
+                    },
+                    "data": [
+                        {
+                            "value": 13000,
+                            "symbol": "image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJgAAA...",
+                            "symbolRepeat": true,
+                            "symbolSize": ["130%", "20%"],
+                            "symbolOffset": [0, 10],
+                            "symbolMargin": "-30%"
+                        },
+                        {
+                            "value": "-",
+                            "symbol": "none"
+                        },
+                        {
+                            "value": 8844,
+                            "symbol": "image://data/asset/img/hill-Qomolangma.png",
+                            "symbolSize": ["200%", "105%"],
+                            "symbolPosition": "end",
+                            "z": 10
+                        },
+                        {
+                            "value": 5895,
+                            "symbol": "image://data/asset/img/hill-Kilimanjaro.png",
+                            "symbolSize": ["200%", "105%"],
+                            "symbolPosition": "end"
+                        }
+                    ],
+                    "markLine": {
+                        "symbol": ["none", "none"],
+                        "label": {
+                            "show": false
+                        },
+                        "lineStyle": {
+                            "color": "#e54035",
+                            "width": 2
+                        },
+                        "data": [
+                            {
+                                "yAxis": 8844
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "All",
+                    "type": "pictorialBar",
+                    "barGap": "-100%",
+                    "symbol": "circle",
+                    "itemStyle": {
+                        "color": "#185491"
+                    },
+                    "silent": true,
+                    "symbolOffset": [0, "50%"],
+                    "z": -10,
+                    "data": [
+                        {
+                            "value": 1,
+                            "symbolSize": ["150%", 50]
+                        },
+                        {
+                            "value": "-"
+                        },
+                        {
+                            "value": 1,
+                            "symbolSize": ["200%", 50]
+                        },
+                        {
+                            "value": 1,
+                            "symbolSize": ["200%", 50]
+                        }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

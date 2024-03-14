@@ -1,0 +1,98 @@
+<Meta description="Dotted bar"/>
+
+<Card xcontrol="card_pictorialBar_dotted" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_pictorialBar_dotted">
+        <![CDATA[
+        {
+            "backgroundColor": "#0f375f",
+            "tooltip": {
+                "trigger": "axis",
+                "position": ["200", "10%"]
+            },
+            "legend": {
+                "data": ["line", "bar"],
+                "textStyle": {
+                    "color": "#ccc"
+                }
+            },
+            "xAxis": {
+                "data": ["2022-1-1", "2022-1-2", "2022-1-3", "2022-1-4", "2022-1-5", "2022-1-6"],
+                "axisLine": {
+                    "lineStyle": {
+                        "color": "#ccc"
+                    }
+                }
+            },
+            "yAxis": {
+                "splitLine": { "show": false },
+                "axisLine": {
+                    "lineStyle": {
+                        "color": "#ccc"
+                    }
+                }
+            },
+            "series": [
+                {
+                    "name": "line",
+                    "type": "line",
+                    "smooth": true,
+                    "showAllSymbol": true,
+                    "symbol": "emptyCircle",
+                    "symbolSize": 15,
+                    "data": [164.8816296742198, 342.12220419874583, 250.31529803693894, 456.160986190751, 398.24319535712977, 554.3607984487567]
+                },
+                {
+                    "name": "bar",
+                    "type": "bar",
+                    "barWidth": 10,
+                    "itemStyle": {
+                        "borderRadius": 5,
+                        "color": {
+                            "type": "linear",
+                            "x": 0,
+                            "y": 0,
+                            "x2": 0,
+                            "y2": 1,
+                            "colorStops": [{ "offset": 0, "color": "#14c8d4" }, { "offset": 1, "color": "#43eec6" }],
+                            "global": false
+                        }
+                    },
+                    "data": [122.44652003323132, 87.61586033020469, 166.8103742933176, 4.147881187504381, 178.33342057226914, 101.6393454530493]
+                },
+                {
+                    "name": "line",
+                    "type": "bar",
+                    "barGap": "-100%",
+                    "barWidth": 10,
+                    "itemStyle": {
+                        "color": {
+                            "type": "linear",
+                            "x": 0,
+                            "y": 0,
+                            "x2": 0,
+                            "y2": 1,
+                            "colorStops": [{ "offset": 0, "color": "rgba(20,200,212,0.5)" }, { "offset": 0.2, "color": "rgba(20,200,212,0.2)" }, { "offset": 1, "color": "rgba(20,200,212,0)" }],
+                            "global": false
+                        }
+                    },
+                    "z": -12,
+                    "data": [164.8816296742198, 342.12220419874583, 250.31529803693894, 456.160986190751, 398.24319535712977, 554.3607984487567]
+                },
+                {
+                    "name": "dotted",
+                    "type": "pictorialBar",
+                    "symbol": "rect",
+                    "itemStyle": {
+                        "color": "#0f375f"
+                    },
+                    "symbolRepeat": true,
+                    "symbolSize": [12, 4],
+                    "symbolMargin": 1,
+                    "z": -10,
+                    "data": [164.8816296742198, 342.12220419874583, 250.31529803693894, 456.160986190751, 398.24319535712977, 554.3607984487567]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

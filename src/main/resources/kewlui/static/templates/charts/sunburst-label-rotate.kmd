@@ -1,0 +1,110 @@
+<Meta description="Sunburst Label Rotate"/>
+
+<Card xcontrol="card_sunburst_label_rotate" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_sunburst_label_rotate">
+        <![CDATA[
+        {
+            "series": [
+                {
+                    "type": "sunburst",
+                    "data": [
+                        {
+                            "value": 8,
+                            "children": [
+                                {
+                                    "value": 4,
+                                    "children": [
+                                        {
+                                            "value": 2
+                                        },
+                                        {
+                                            "value": 1
+                                        },
+                                        {
+                                            "value": 1
+                                        },
+                                        {
+                                            "value": 0.5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": 2
+                                }
+                            ]
+                        },
+                        {
+                            "value": 4,
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "value": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "value": 4,
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "value": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "value": 3,
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "label": {
+                        "color": "#000",
+                        "textBorderColor": "#fff",
+                        "textBorderWidth": 2
+                    },
+                    "levels": [
+                        {},
+                        {
+                            "itemStyle": {
+                                "color": "#CD4949"
+                            },
+                            "label": {
+                                "rotate": "radial"
+                            }
+                        },
+                        {
+                            "itemStyle": {
+                                "color": "#F47251"
+                            },
+                            "label": {
+                                "rotate": "tangential"
+                            }
+                        },
+                        {
+                            "itemStyle": {
+                                "color": "#FFC75F"
+                            },
+                            "label": {
+                                "rotate": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

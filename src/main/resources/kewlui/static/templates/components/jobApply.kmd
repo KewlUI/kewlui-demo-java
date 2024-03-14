@@ -1,0 +1,16 @@
+<Meta description="An example showing many FormInputs in a dataEntry page for a job application form."/>
+
+<VStack xcontrol="dataEntryPage" width="100%" height="100%" bgColor="theme.colors.page" color="theme.colors.pageText" spacing={6} alignItems="center" justifyContent="start" padding="4">
+  <Markdown xcontrol="pageTitle" color="theme.colors.primaryText">
+    ## Job Application Form
+  </Markdown>
+  <FormInput xcontrol="fullNameInput" placeholder="Full Name" text="Full Name:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="emailInput" placeholder="Email Address" text="Email Address:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="phoneNumberInput" placeholder="Phone Number" text="Phone Number:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="addressInput" placeholder="Current Address" text="Current Address:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="educationInput" placeholder="Highest Level of Education" text="Education:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="experienceInput" placeholder="Previous Job Experience" text="Job Experience:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="skillsInput" placeholder="Skills" text="Skills:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <FormInput xcontrol="portfolioInput" placeholder="Portfolio URL (if any)" text="Portfolio:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+  <Button xcontrol="submitApplicationButton" bgColor="theme.colors.primary" color="theme.colors.primaryText">Submit Application</Button>
+</VStack>

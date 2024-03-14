@@ -1,0 +1,56 @@
+<Meta description="Animation Delay"/>
+
+<Card xcontrol="card_animation_delay" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_animation_delay">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "legend": {
+                "data": ["bar", "bar2"]
+            },
+            "toolbox": {
+                "feature": {
+                    "magicType": {
+                        "type": ["stack"]
+                    },
+                    "dataView": {},
+                    "saveAsImage": {}
+                }
+            },
+            "tooltip": {},
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": false,
+                "data": ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "series": [
+                {
+                    "name": "bar",
+                    "type": "bar",
+                    "data": [10, 20, 15, 30, 25, 20, 15, 10, 5, 0],
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "animationDelay": 10
+                },
+                {
+                    "name": "bar2",
+                    "type": "bar",
+                    "data": [5, 10, 15, 10, 5, 0, -5, -10, -5, 0],
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "animationDelay": 110
+                }
+            ],
+            "animationEasing": "elasticOut",
+            "animationDelayUpdate": 5
+        }
+        ]]>
+    </EChart>
+</Card>

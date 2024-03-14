@@ -1,0 +1,40 @@
+<Meta description="Calendar Heatmap"/>
+
+<Card xcontrol="card_calendar_heatmap" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_calendar_heatmap">
+        <![CDATA[
+        {
+            "title": {
+                "top": 30,
+                "left": "center",
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {},
+            "visualMap": {
+                "min": 0,
+                "max": 10000,
+                "type": "piecewise",
+                "orient": "horizontal",
+                "left": "center",
+                "top": 65
+            },
+            "calendar": {
+                "top": 120,
+                "left": 30,
+                "right": 30,
+                "cellSize": ["auto", 13],
+                "range": "2016",
+                "itemStyle": {
+                    "borderWidth": 0.5
+                },
+                "yearLabel": { "show": false}
+            },
+            "series": {
+                "type": "heatmap",
+                "coordinateSystem": "calendar",
+                "data": [["2016-01-01", 4456], ["2016-01-02", 7723], ["2016-01-03", 1089], ["2016-01-04", 5678], ["2016-01-05", 2463]]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

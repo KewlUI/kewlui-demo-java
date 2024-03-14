@@ -1,0 +1,83 @@
+<Meta description="Stacked Bar Normalization"/>
+
+<Card xcontrol="card_bar_stack_normalization" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_stack_normalization">
+        <![CDATA[
+        {
+            "legend": {
+                "selectedMode": false
+            },
+            "grid": {
+                "left": 100,
+                "right": 100,
+                "top": 50,
+                "bottom": 50
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "xAxis": {
+                "type": "category",
+                "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            },
+            "series": [
+                {
+                    "name": "Leading",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "formatter": "37.5%"
+                    },
+                    "data": [0.10416666666666667, 0.2976190476190476, 0.3018604651162791, 0.2593869731800766, 0.14678899082568808, 0.1411764705882353, 0.13432835820895522]
+                },
+                {
+                    "name": "Post Ad",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "formatter": "7.7%"
+                    },
+                    "data": [0.3333333333333333, 0.12169312169312169, 0.10077519379844961, 0.11242603550295859, 0.06976744186046512, 0.17254901960784313, 0.16791044776119404]
+                },
+                {
+                    "name": "Partner Ad",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "formatter": "12.3%"
+                    },
+                    "data": [0.22916666666666666, 0.1746031746031746, 0.19161290322580644, 0.16824644549763032, 0.22525597269624574, 0.1411764705882353, 0.14925373134328357]
+                },
+                {
+                    "name": "Video Promo",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "formatter": "12.5%"
+                    },
+                    "data": [0.15625, 0.20105820105820105, 0.20155038759689922, 0.13145539906103286, 0.14678899082568808, 0.1411764705882353, 0.1962686567164179]
+                },
+                {
+                    "name": "Search Index",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "formatter": "30%"
+                    },
+                    "data": [0.17604166666666668, 0.20572607260726072, 0.2042015503875969, 0.32848514644351464, 0.4103982300884956, 0.4035294117647059, 0.35223880597014924]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

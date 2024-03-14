@@ -1,0 +1,22 @@
+<Meta description="Line Chart in Cartesian Coordinate System"/>
+
+<Card xcontrol="card_line_in_cartesian_coordinate_system" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line_in_cartesian_coordinate_system">
+        <![CDATA[
+        {
+            "xAxis": {},
+            "yAxis": {},
+            "series": [
+                {
+                    "data": [
+                        [10, 40],
+                        [50, 100],
+                        [40, 20]
+                    ],
+                    "type": "line"
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

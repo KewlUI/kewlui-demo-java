@@ -1,0 +1,20 @@
+<Meta description="An example user settings page. Including radio buttons, checkbox, slider and Editable."/>
+
+<VStack xcontrol="userSettingsPage" width="100%" height="100%" alignItems="center" spacing={6} bgColor="theme.colors.page" color="theme.colors.pageText">
+  <Text fontSize="2xl" fontWeight="bold" color="theme.colors.primaryText">Profile Settings</Text>
+  <VStack width="80%" spacing={4}>
+    <FormInput xcontrol="userNameInput" placeholder="Enter your name" text="Your Name:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText"/>
+    <Text>Bio:</Text>
+    <Editable xcontrol="editableBio" defaultValue="Add a bio" text="Bio:" bgColor="theme.colors.secondary" color="theme.colors.secondaryText" height='100px'/>
+    <RadioGroup xcontrol="notificationPreferences" defaultValue="sms">
+      <Stack direction="row" spacing={2}>
+        <Radio value="email">Email</Radio>
+        <Radio value="sms">SMS</Radio>
+        <Radio value="app">In-App</Radio>
+      </Stack>
+    </RadioGroup>
+    <Slider xcontrol="newsletterFrequencySlider" defaultValue={30} min={0} max={100} step={10} text="Newsletter Frequency (%):" bgColor="theme.colors.accent" color="theme.colors.accentText"/>
+    <Checkbox xcontrol="termsCheckbox" text="I agree to the Terms and Conditions" bgColor="theme.colors.primary_50" color="theme.colors.primaryText"/>
+  </VStack>
+  <Button xcontrol="saveSettingsButton" bgColor="theme.colors.primary" color="theme.colors.primaryText">Save Settings</Button>
+</VStack>

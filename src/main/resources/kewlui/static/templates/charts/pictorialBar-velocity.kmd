@@ -1,0 +1,63 @@
+<Meta description="Velocity of Christmas Reindeers"/>
+<Card xcontrol="card_pictorialBar_velocity"    height="300px" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start" >
+    <EChart  width="350px" height="300px" xcontrol="chart_pictorialBar_velocity">
+    <![CDATA[
+    {
+      "tooltip": {
+        "trigger": "axis",
+        "axisPointer": {
+          "type": "none"
+        },
+        "formatter": "Reindeer: 123"
+      },
+      "xAxis": {
+        "data": ["Reindeer", "Rocket", "Plane", "Train", "Ship", "Car", "Run", "Walk"],
+        "axisTick": { "show": false },
+        "axisLine": { "show": false },
+        "axisLabel": {
+          "color": "#e54035"
+        }
+      },
+      "yAxis": {
+        "splitLine": { "show": false },
+        "axisTick": { "show": false },
+        "axisLine": { "show": false },
+        "axisLabel": { "show": false }
+      },
+      "color": ["#e54035"],
+      "series": [
+        {
+          "name": "hill",
+          "type": "pictorialBar",
+          "barCategoryGap": "-130%",
+          "symbol": "path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z",
+          "itemStyle": {
+            "opacity": 0.5
+          },
+          "emphasis": {
+            "itemStyle": {
+              "opacity": 1
+            }
+          },
+          "data": [123, 60, 25, 18, 12, 9, 2, 1],
+          "z": 10
+        },
+        {
+          "name": "glyph",
+          "type": "pictorialBar",
+          "barGap": "-100%",
+          "symbolPosition": "end",
+          "symbolSize": 50,
+          "symbolOffset": [0, "-120%"],
+          "data": [
+            {
+              "value": 123,
+              "symbol": "path://M-22.788,24.521c2.08-0.986,3.611-3.905,4.984-5.892 c-2.686,2.782-5.047,5.884-9.102,7.312c-0.992,0.005-0.25-2.016,0.34-2.362l1.852-0.41c0.564-0.218,0.785-0.842,0.902-1.347 c2.133-0.727,4.91-4.129,6.031-6.194c1.748-0.7,4.443-0.679,5.734-2.293c1.176-1.468,0.393-3.992,1.215-6.557 c0.24-0.754,0.574-1.581,1.008-2.293c-0.611,0.011-1.348-0.061-1.959-0.608c-1.391-1.245-0.785-2.086-1.297-3.313 c1.684,0.744,2.5,2.584,4.426,2.586C-8.46,3.012-8.255,2.901-8.04,2.824c6.031-1.952,15.182-0.165,19.498-3.937 c..."
+            }
+          ]
+        }
+      ]
+    }
+    ]]>
+    </EChart>
+</Card>

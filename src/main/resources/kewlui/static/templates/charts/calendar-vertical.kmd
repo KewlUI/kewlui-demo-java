@@ -1,0 +1,63 @@
+<Meta description="Calendar Heatmap Vertical"/>
+
+<Card xcontrol="card_calendar_vertical" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_calendar_vertical">
+        <![CDATA[
+        {
+            "tooltip": {
+                "position": "top",
+                "formatter": "{{formatDate|}}"
+            },
+            "visualMap": {
+                "min": 0,
+                "max": 1000,
+                "calculable": true,
+                "orient": "vertical",
+                "left": "670",
+                "top": "center"
+            },
+            "calendar": [
+                {
+                    "orient": "vertical",
+                    "range": "2015"
+                },
+                {
+                    "left": 300,
+                    "orient": "vertical",
+                    "range": "2016"
+                },
+                {
+                    "left": 520,
+                    "cellSize": [20, "auto"],
+                    "bottom": 10,
+                    "orient": "vertical",
+                    "range": "2017",
+                    "dayLabel": {
+                        "margin": 5
+                    }
+                }
+            ],
+            "series": [
+                {
+                    "type": "heatmap",
+                    "coordinateSystem": "calendar",
+                    "calendarIndex": 0,
+                    "data": [["2015-01-01", 287], ["2015-01-02", 596], ["2015-01-03", 744], ["2015-01-04", 315], ["2015-01-05", 62], ["2015-01-06", 788]]
+                },
+                {
+                    "type": "heatmap",
+                    "coordinateSystem": "calendar",
+                    "calendarIndex": 1,
+                    "data": [["2016-01-01", 452], ["2016-01-02", 259], ["2016-01-03", 715], ["2016-01-04", 771], ["2016-01-05", 246], ["2016-01-06", 356]]
+                },
+                {
+                    "type": "heatmap",
+                    "coordinateSystem": "calendar",
+                    "calendarIndex": 2,
+                    "data": [["2017-01-01", 397], ["2017-01-02", 821], ["2017-01-03", 999], ["2017-01-04", 202], ["2017-01-05", 449], ["2017-01-06", 111]]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

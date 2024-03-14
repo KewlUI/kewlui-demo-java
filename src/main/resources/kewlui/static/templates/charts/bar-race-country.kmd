@@ -1,0 +1,88 @@
+<Meta description="Bar Race"/>
+
+<Card xcontrol="card_bar_race_country" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_race_country">
+        <![CDATA[
+        {
+            "grid": {
+                "top": 10,
+                "bottom": 30,
+                "left": 150,
+                "right": 80
+            },
+            "xAxis": {
+                "max": "dataMax",
+                "axisLabel": {
+                    "formatter": "{value}"
+                }
+            },
+            "dataset": {
+                "source": [
+                    [83, "Australia", "AUS", "Australia", "1960", 2324.69],
+                    [84, "Canada", "CAN", "Canada", "1960", 2242.86],
+                    [85, "China", "CHN", "China", "1960", 453.1],
+                    [86, "Cuba", "CUB", "Cuba", "1960", 600.08],
+                    [87, "Finland", "FIN", "Finland", "1960", 1856.27],
+                    [88, "France", "FRA", "France", "1960", 2548.56],
+                    [89, "Germany", "DEU", "Germany", "1960", 2356.02],
+                    [90, "Iceland", "ISL", "Iceland", "1960", 2302.02],
+                    [91, "India", "IND", "India", "1960", 91.2],
+                    [92, "Japan", "JPN", "Japan", "1960", 1356.4],
+                    [93, "North Korea", "PRK", "North Korea", "1960", 804.76]
+                ]
+            },
+            "yAxis": {
+                "type": "category",
+                "inverse": true,
+                "max": 10,
+                "axisLabel": {
+                    "show": true,
+                    "fontSize": 14
+                },
+                "animationDuration": 300,
+                "animationDurationUpdate": 300
+            },
+            "series": [
+                {
+                    "realtimeSort": true,
+                    "seriesLayoutBy": "column",
+                    "type": "bar",
+                    "itemStyle": {
+                        "color": "#5470c6"
+                    },
+                    "encode": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "label": {
+                        "show": true,
+                        "precision": 1,
+                        "position": "right",
+                        "valueAnimation": true,
+                        "fontFamily": "monospace"
+                    }
+                }
+            ],
+            "animationDuration": 0,
+            "animationDurationUpdate": 2000,
+            "animationEasing": "linear",
+            "animationEasingUpdate": "linear",
+            "graphic": {
+                "elements": [
+                    {
+                        "type": "text",
+                        "right": 160,
+                        "bottom": 60,
+                        "style": {
+                            "text": "1960",
+                            "font": "bolder 80px monospace",
+                            "fill": "rgba(100, 100, 100, 0.25)"
+                        },
+                        "z": 100
+                    }
+                ]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

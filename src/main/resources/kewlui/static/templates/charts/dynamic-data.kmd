@@ -1,0 +1,80 @@
+<Meta description="Dynamic Data"/>
+
+<Card xcontrol="card_dynamic_data" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_dynamic_data">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {
+                "trigger": "axis",
+                "axisPointer": {
+                    "type": "cross",
+                    "label": {
+                        "backgroundColor": "#283b56"
+                    }
+                }
+            },
+            "legend": {},
+            "toolbox": {
+                "show": true,
+                "feature": {
+                    "dataView": { "readOnly": false },
+                    "restore": {},
+                    "saveAsImage": {}
+                }
+            },
+            "dataZoom": {
+                "show": false,
+                "start": 0,
+                "end": 100
+            },
+            "xAxis": [
+                {
+                    "type": "category",
+                    "boundaryGap": true,
+                    "data": ["11:41:12", "11:41:10", "11:41:08", "11:41:06", "11:41:04", "11:41:02", "11:41:00", "11:40:58", "11:40:56", "11:40:54"]
+                },
+                {
+                    "type": "category",
+                    "boundaryGap": true,
+                    "data": [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+                }
+            ],
+            "yAxis": [
+                {
+                    "type": "value",
+                    "scale": true,
+                    "name": "Price",
+                    "max": 30,
+                    "min": 0,
+                    "boundaryGap": [0.2, 0.2]
+                },
+                {
+                    "type": "value",
+                    "scale": true,
+                    "name": "Order",
+                    "max": 1200,
+                    "min": 0,
+                    "boundaryGap": [0.2, 0.2]
+                }
+            ],
+            "series": [
+                {
+                    "name": "Dynamic Bar",
+                    "type": "bar",
+                    "xAxisIndex": 1,
+                    "yAxisIndex": 1,
+                    "data": [771, 428, 147, 778, 882, 42, 479, 465, 869, 418]
+                },
+                {
+                    "name": "Dynamic Line",
+                    "type": "line",
+                    "data": [7.3, 5.1, 5.9, 9.1, 14.5, 5.5, 11.5, 12.4, 5.9, 9.9]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

@@ -1,0 +1,39 @@
+<Meta description="Bar Race"/>
+
+<Card xcontrol="card_bar_race" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_race">
+        <![CDATA[
+        {
+            "xAxis": {
+                "max": "dataMax"
+            },
+            "yAxis": {
+                "type": "category",
+                "data": ["A", "B", "C", "D", "E"],
+                "inverse": true,
+                "animationDuration": 300,
+                "animationDurationUpdate": 300,
+                "max": 2
+            },
+            "series": [{
+                "realtimeSort": true,
+                "name": "X",
+                "type": "bar",
+                "data": [83, 147, 132, 52, 116],
+                "label": {
+                    "show": true,
+                    "position": "right",
+                    "valueAnimation": true
+                }
+            }],
+            "legend": {
+                "show": true
+            },
+            "animationDuration": 0,
+            "animationDurationUpdate": 3000,
+            "animationEasing": "linear",
+            "animationEasingUpdate": "linear"
+        }
+        ]]>
+    </EChart>
+</Card>

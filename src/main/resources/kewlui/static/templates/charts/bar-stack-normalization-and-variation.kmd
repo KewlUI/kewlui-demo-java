@@ -1,0 +1,137 @@
+<Meta description="Stacked Bar Normalization and Variation"/>
+
+<Card xcontrol="card_bar_stack_normalization_and_variation" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_stack_normalization_and_variation">
+        <![CDATA[
+        {
+            "legend": {
+                "selectedMode": false
+            },
+            "grid": {
+                "left": 100,
+                "right": 100,
+                "top": 50,
+                "bottom": 50
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "xAxis": {
+                "type": "category",
+                "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            },
+            "series": [
+                {
+                    "name": "Direct",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "text": "{{chartTitle|}}"
+                    },
+                    "data": [0.0608, 0.3188, 0.2099, 0.2428, 0.148, 0.1659, 0.1875]
+                },
+                {
+                    "name": "Mail Ad",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "text": "{{chartTitle|}}"
+                    },
+                    "data": [0.0608, 0.0725, 0.067, 0.0729, 0.0698, 0.0848, 0.0648]
+                },
+                {
+                    "name": "Affiliate Ad",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "text": "{{chartTitle|}}"
+                    },
+                    "data": [0.0608, 0.0619, 0.0622, 0.0723, 0.0932, 0.1099, 0.1038]
+                },
+                {
+                    "name": "Video Ad",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "text": "{{chartTitle|}}"
+                    },
+                    "data": [0.0608, 0.0729, 0.0677, 0.0564, 0.0859, 0.1099, 0.1333]
+                },
+                {
+                    "name": "Search Engine",
+                    "type": "bar",
+                    "stack": "total",
+                    "barWidth": "60%",
+                    "label": {
+                        "show": true,
+                        "text": "{{chartTitle|}}"
+                    },
+                    "data": [0.2548, 0.4739, 0.3801, 0.5556, 0.6032, 0.5294, 0.5106]
+                }
+            ],
+            "graphic": {
+                "elements": [
+                    {
+                        "type": "polygon",
+                        "shape": {
+                            "points": [[100, 350], [100, 186.4], [166.66666666666666, 186.4], [166.66666666666666, 350], [100, 350]]
+                        },
+                        "style": {
+                            "fill": "#5470c6",
+                            "opacity": 0.25
+                        }
+                    },
+                    {
+                        "type": "polygon",
+                        "shape": {
+                            "points": [[166.66666666666666, 350], [166.66666666666666, 163.5], [233.33333333333331, 163.5], [233.33333333333331, 350], [166.66666666666666, 350]]
+                        },
+                        "style": {
+                            "fill": "#91cc75",
+                            "opacity": 0.25
+                        }
+                    },
+                    {
+                        "type": "polygon",
+                        "shape": {
+                            "points": [[233.33333333333331, 350], [233.33333333333331, 141], [300, 141], [300, 350], [233.33333333333331, 350]]
+                        },
+                        "style": {
+                            "fill": "#fac858",
+                            "opacity": 0.25
+                        }
+                    },
+                    {
+                        "type": "polygon",
+                        "shape": {
+                            "points": [[300, 350], [300, 182.6], [366.66666666666663, 182.6], [366.66666666666663, 350], [300, 350]]
+                        },
+                        "style": {
+                            "fill": "#ee6666",
+                            "opacity": 0.25
+                        }
+                    },
+                    {
+                        "type": "polygon",
+                        "shape": {
+                            "points": [[366.66666666666663, 350], [366.66666666666663, 79], [433.3333333333333, 79], [433.3333333333333, 350], [366.66666666666663, 350]]
+                        },
+                        "style": {
+                            "fill": "#73c0de",
+                            "opacity": 0.25
+                        }
+                    }
+                ]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

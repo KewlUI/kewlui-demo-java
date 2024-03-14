@@ -1,0 +1,60 @@
+<Meta description="Large Scatter"/>
+
+<Card xcontrol="card_large_scatter" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_large_scatter">
+        <![CDATA[
+        {
+            "title": {
+                "left": "left",
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {},
+            "toolbox": {
+                "left": "center",
+                "feature": {
+                    "dataZoom": {}
+                }
+            },
+            "legend": {
+                "orient": "vertical",
+                "right": 10
+            },
+            "xAxis": [{}],
+            "yAxis": [{}],
+            "dataZoom": [
+                {
+                    "type": "inside"
+                },
+                {
+                    "type": "slider"
+                }
+            ],
+            "animation": false,
+            "series": [
+                {
+                    "name": "A",
+                    "type": "scatter",
+                    "data": [1.23, 0.01, 2.34, -0.04, 3.45, 0.08, 4.56, -0.05, 5.67, 0.02],
+                    "dimensions": ["x", "y"],
+                    "symbolSize": 3,
+                    "itemStyle": {
+                        "opacity": 0.4
+                    },
+                    "large": true
+                },
+                {
+                    "name": "B",
+                    "type": "scatter",
+                    "data": [1.23, 0.11, 2.34, -0.08, 3.45, -0.04, 4.56, 0.06, 5.67, -0.01],
+                    "dimensions": ["x", "y"],
+                    "symbolSize": 3,
+                    "itemStyle": {
+                        "opacity": 0.4
+                    },
+                    "large": true
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

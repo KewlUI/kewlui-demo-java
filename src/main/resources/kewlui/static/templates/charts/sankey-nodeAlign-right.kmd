@@ -1,0 +1,47 @@
+<Meta description="Node Align Right in Sankey"/>
+
+<Card xcontrol="card_sankey_nodeAlign_right" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_sankey_nodeAlign_right">
+        <![CDATA[
+        {
+            "title": {
+                "left": "left",
+                "text": "{{chartTitle|}}"
+            },
+            "tooltip": {
+                "trigger": "item",
+                "triggerOn": "mousemove"
+            },
+            "animation": false,
+            "series": [
+                {
+                    "type": "sankey",
+                    "emphasis": {
+                        "focus": "adjacency"
+                    },
+                    "nodeAlign": "right",
+                    "data": [
+                        {
+                            "name": "Node A"
+                        },
+                        {
+                            "name": "Node B"
+                        }
+                    ],
+                    "links": [
+                        {
+                            "source": "Node A",
+                            "target": "Node B",
+                            "value": 10
+                        }
+                    ],
+                    "lineStyle": {
+                        "color": "source",
+                        "curveness": 0.5
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

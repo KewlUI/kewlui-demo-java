@@ -1,0 +1,36 @@
+<Meta description="Radial Tree"/>
+
+<Card xcontrol="card_tree_radial" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_tree_radial">
+        <![CDATA[
+        {
+            "tooltip": {
+                "trigger": "item",
+                "triggerOn": "mousemove"
+            },
+            "series": [
+                {
+                    "type": "tree",
+                    "data": [
+                        {
+                            "name": "flare",
+                            "itemStyle": {},
+                            "label": {}
+                        }
+                    ],
+                    "top": "18%",
+                    "bottom": "14%",
+                    "layout": "radial",
+                    "symbol": "emptyCircle",
+                    "symbolSize": 7,
+                    "initialTreeDepth": 3,
+                    "animationDurationUpdate": 750,
+                    "emphasis": {
+                        "focus": "descendant"
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

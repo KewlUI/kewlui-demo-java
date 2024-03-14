@@ -1,0 +1,52 @@
+<Meta description="Visual interaction with stream"/>
+
+<Card xcontrol="card_scatter_stream_visual" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_scatter_stream_visual">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}",
+                "left": "center",
+                "top": 0
+            },
+            "visualMap": {
+                "min": 15202,
+                "max": 159980,
+                "dimension": 1,
+                "orient": "vertical",
+                "right": 10,
+                "top": "center",
+                "text": ["HIGH", "LOW"],
+                "calculable": true,
+                "inRange": {
+                    "color": ["#f2c31a", "#24b7f2"]
+                }
+            },
+            "tooltip": {
+                "trigger": "item",
+                "axisPointer": {
+                    "type": "cross"
+                }
+            },
+            "xAxis": [
+                {
+                    "type": "value"
+                }
+            ],
+            "yAxis": [
+                {
+                    "type": "value"
+                }
+            ],
+            "series": [
+                {
+                    "name": "price-area",
+                    "type": "scatter",
+                    "symbolSize": 5,
+                    "data": [[285,13096],[670,121225],[295,103315],[418,134450],[147,127217],[89,122211],[149,155924],[486,136754]]
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

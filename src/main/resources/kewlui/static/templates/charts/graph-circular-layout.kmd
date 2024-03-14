@@ -1,0 +1,72 @@
+<Meta description="Les Miserables"/>
+<Card xcontrol="card_graph_circular_layout" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_graph_circular_layout">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}",
+                "subtext": "Circular layout",
+                "top": "bottom",
+                "left": "right"
+            },
+            "tooltip": {},
+            "legend": [
+                {
+                    "data": ["Protagonist", "Antagonist", "Supporting Character", "Love Interest", "Villain"]
+                }
+            ],
+            "animationDurationUpdate": 1500,
+            "animationEasingUpdate": "quinticInOut",
+            "series": [
+                {
+                    "name": "Les Miserables",
+                    "type": "graph",
+                    "layout": "circular",
+                    "circular": {
+                        "rotateLabel": true
+                    },
+                    "data": [
+                        {
+                            "symbolSize": 20,
+                            "label": { "show": false }
+                        },
+                        {
+                            "symbolSize": 40,
+                            "label": { "show": true }
+                        },
+                        {
+                            "symbolSize": 30,
+                            "label": { "show": true }
+                        },
+                        {
+                            "symbolSize": 25,
+                            "label": { "show": false }
+                        },
+                        {
+                            "symbolSize": 35,
+                            "label": { "show": true }
+                        }
+                    ],
+                    "links": [
+                        {"source": "Protagonist", "target": "Antagonist"},
+                        {"source": "Supporting Character", "target": "Antagonist"},
+                        {"source": "Love Interest", "target": "Protagonist"},
+                        {"source": "Villain", "target": "Protagonist"},
+                        {"source": "Antagonist", "target": "Protagonist"}
+                    ],
+                    "categories": ["Protagonist", "Antagonist", "Supporting Character", "Love Interest", "Villain"],
+                    "roam": true,
+                    "label": {
+                        "position": "right",
+                        "formatter": "{b}"
+                    },
+                    "lineStyle": {
+                        "color": "source",
+                        "curveness": 0.3
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

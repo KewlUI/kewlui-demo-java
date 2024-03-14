@@ -1,0 +1,24 @@
+<Meta description="Basic Line Chart"/>
+
+<Card xcontrol="card_line_simple" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line_simple">
+        <![CDATA[
+        {
+            "xAxis": {
+                "type": "category",
+                "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "series": [
+                {
+                    "data": [150, 230, 224, 218, 135, 147, 260],
+                    "type": "line",
+                    "areaStyle": {}
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

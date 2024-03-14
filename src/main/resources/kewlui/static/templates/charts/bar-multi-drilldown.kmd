@@ -1,0 +1,48 @@
+<Meta description="Bar Chart Multi-level Drilldown Animation"/>
+
+<Card xcontrol="card_bar_multi_drilldown" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_bar_multi_drilldown">
+        <![CDATA[
+        {
+            "xAxis": {
+                "type": "category"
+            },
+            "yAxis": {
+                "minInterval": 1
+            },
+            "series": {
+                "type": "bar",
+                "dimensions": ["x", "y", "groupId", "childGroupId"],
+                "encode": {
+                    "x": "x",
+                    "y": "y",
+                    "itemGroupId": "groupId",
+                    "itemChildGroupId": "childGroupId"
+                },
+                "data": [
+                    ["Animals", 3, "things", "animals"],
+                    ["Fruits", 3, "things", "fruits"],
+                    ["Cars", 2, "things", "cars"]
+                ],
+                "universalTransition": {
+                    "enabled": true,
+                    "divideShape": "clone"
+                }
+            },
+            "animationDurationUpdate": 500,
+            "graphic": [
+                {
+                    "type": "text",
+                    "left": 50,
+                    "top": 20,
+                    "style": {
+                        "text": "Back",
+                        "fontSize": 18,
+                        "fill": "grey"
+                    }
+                }
+            ]
+        }
+        ]]>
+    </EChart>
+</Card>

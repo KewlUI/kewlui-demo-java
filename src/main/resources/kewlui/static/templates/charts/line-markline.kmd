@@ -1,0 +1,55 @@
+<Meta description="Line with Marklines"/>
+
+<Card xcontrol="card_line-markline" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_line-markline">
+        <![CDATA[
+        {
+            "xAxis": {
+                "data": ["A", "B", "C", "D", "E"],
+                "boundaryGap": true,
+                "splitArea": {
+                    "show": true
+                }
+            },
+            "yAxis": {
+                "max": 2
+            },
+            "series": [
+                {
+                    "name": "line",
+                    "type": "line",
+                    "stack": "all",
+                    "symbolSize": 6,
+                    "data": [0.3, 1.4, 1.2, 1, 0.6],
+                    "markLine": {
+                        "data": [
+                            {
+                                "name": "start",
+                                "yAxis": 1.8,
+                                "label": {
+                                    "formatter": "{b}",
+                                    "position": "start"
+                                }
+                            },
+                            {
+                                "name": "end",
+                                "yAxis": 1.2,
+                                "label": {
+                                    "formatter": "end",
+                                    "position": "end"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "grid": {
+                "top": 30,
+                "left": 60,
+                "right": 60,
+                "bottom": 40
+            }
+        }
+        ]]>
+    </EChart>
+</Card>

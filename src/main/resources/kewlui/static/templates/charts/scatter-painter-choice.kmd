@@ -1,0 +1,67 @@
+<Meta description="Master Painter Color Choices Throughout History"/>
+
+<Card xcontrol="card_scatter_painter_choice" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_scatter_painter_choice">
+        <![CDATA[{
+            "title": {
+                "text": "{{chartTitle|}}",
+                "subtext": "Data From Plot.ly",
+                "left": "right"
+            },
+            "xAxis": {
+                "type": "value",
+                "splitLine": {
+                    "show": false
+                },
+                "scale": true,
+                "splitNumber": 5,
+                "max": "dataMax",
+                "axisLabel": {
+                    "formatter": "val + 's'"
+                }
+            },
+            "yAxis": {
+                "type": "value",
+                "min": 0,
+                "max": 360,
+                "interval": 60,
+                "name": "Hue",
+                "splitLine": {
+                    "show": false
+                }
+            },
+            "series": [
+                {
+                    "name": "scatter",
+                    "type": "scatter",
+                    "symbolSize": 60,
+                    "itemStyle": {
+                        "color": "rgb(0,0,0)"
+                    },
+                    "data": [
+                        [0, 0],
+                        [1, 81],
+                        [2, 101],
+                        [3, 168],
+                        [4, 250],
+                        [5, 321],
+                        [6, 339],
+                        [7, 344],
+                        [8, 285],
+                        [9, 178],
+                        [10, 88],
+                        [11, 39],
+                        [12, 8],
+                        [13, 2],
+                        [14, 60],
+                        [15, 153],
+                        [16, 191],
+                        [17, 263],
+                        [18, 336],
+                        [19, 339]
+                    ]
+                }
+            ]
+        }]]>
+    </EChart>
+</Card>

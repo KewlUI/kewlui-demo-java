@@ -1,0 +1,143 @@
+<Meta description="Drink Flavors"/>
+
+<Card xcontrol="card_sunburst_drink" bgColor="theme.colors.page" color="theme.colors.pageText" alignItems="center" justifyContent="start">
+    <EChart width="450px" height="300px" xcontrol="chart_sunburst_drink">
+        <![CDATA[
+        {
+            "title": {
+                "text": "{{chartTitle|}}"
+            },
+            "series": {
+                "type": "sunburst",
+                "data": [
+                    {
+                        "name": "Flora",
+                        "itemStyle": {
+                            "color": "#da0d68"
+                        },
+                        "children": [
+                            {
+                                "name": "Black Tea",
+                                "value": 1,
+                                "itemStyle": {
+                                    "color": "#975e6d"
+                                }
+                            },
+                            {
+                                "name": "Floral",
+                                "itemStyle": {
+                                    "color": "#e0719c"
+                                },
+                                "children": [
+                                    {
+                                        "name": "Chamomile",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#f99e1c"
+                                        }
+                                    },
+                                    {
+                                        "name": "Rose",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#ef5a78"
+                                        }
+                                    },
+                                    {
+                                        "name": "Jasmine",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#f7f1bd"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Fruity",
+                        "itemStyle": {
+                            "color": "#da1d23"
+                        },
+                        "children": [
+                            {
+                                "name": "Berry",
+                                "itemStyle": {
+                                    "color": "#dd4c51"
+                                },
+                                "children": [
+                                    {
+                                        "name": "Blackberry",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#3e0317"
+                                        }
+                                    },
+                                    {
+                                        "name": "Raspberry",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#e62969"
+                                        }
+                                    },
+                                    {
+                                        "name": "Blueberry",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#6569b0"
+                                        }
+                                    },
+                                    {
+                                        "name": "Strawberry",
+                                        "value": 1,
+                                        "itemStyle": {
+                                            "color": "#ef2d36"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "radius": [0, "95%"],
+                "sort": null,
+                "emphasis": {
+                    "focus": "ancestor"
+                },
+                "levels": [
+                    {},
+                    {
+                        "r0": "15%",
+                        "r": "35%",
+                        "itemStyle": {
+                            "borderWidth": 2
+                        },
+                        "label": {
+                            "rotate": "tangential"
+                        }
+                    },
+                    {
+                        "r0": "35%",
+                        "r": "70%",
+                        "label": {
+                            "align": "right"
+                        }
+                    },
+                    {
+                        "r0": "70%",
+                        "r": "72%",
+                        "label": {
+                            "position": "outside",
+                            "padding": 3,
+                            "silent": false
+                        },
+                        "itemStyle": {
+                            "borderWidth": 3
+                        }
+                    }
+                ]
+            }
+        }
+        ]]>
+    </EChart>
+</Card>
