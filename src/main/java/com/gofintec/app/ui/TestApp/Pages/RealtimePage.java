@@ -24,7 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-
 import com.gofintec.app.ui.TestApp.Forms.DashboardForm;
 import com.gofintec.kewlui.base.StateData;
 import com.gofintec.kewlui.builders.DraggableGridBuilder;
@@ -52,7 +51,6 @@ public class RealtimePage {
 
         parent.setOverflowY(globalState, OverflowEnum.HIDDEN);
         var vstack = VStack.appendTo(parent,globalState);
-        vstack.setBgColor(globalState, "theme.colors.pageBgColor");
 
         addTopText( vstack, globalState);
 
@@ -78,7 +76,6 @@ public class RealtimePage {
         ///////////////
         var card = Card.appendTo(vstack,globalState);
         card.setWidth(globalState,"90%");
-        card.setBgColor(globalState, "theme.colors.cardBgColor");
 
         var mobileDisclaimer = Markdown.appendTo(card,globalState, "***( Note: KewlUI excels on full-screen browsers. Mobile viewing may not be optimal)***");
         mobileDisclaimer.setClientSidePreRender(globalState, """
@@ -200,8 +197,6 @@ public class RealtimePage {
         window.setBorder(globalState,"2px solid black").setBorderRadius(globalState,"5px");
 
         var box = Box.appendTo(window,globalState);
-        //box.setWidth(globalState,"100%").setHeight(globalState,"100%");
-        box.setBgColor(globalState, "theme.colors.cardBgColor").setColor(globalState, "theme.colors.cardColor");
         box.setBorderRadius(globalState, "md");
         box.setOverflowY(globalState, OverflowEnum.AUTO);
 

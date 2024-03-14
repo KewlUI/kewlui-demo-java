@@ -150,7 +150,6 @@ Other controls have been implemented, and will be added to the control showcase 
     });
 ```
 """;
-
         addExplanationPages(parent, state, "PopupMessage", markdownDescription, vs, java, true);
     }
 
@@ -192,10 +191,10 @@ Other controls have been implemented, and will be added to the control showcase 
             // add buttons into the default main area of the container
             var b = Button.appendTo(popover,state,"Settings");
             b.setIcon(state,"MdOutlineSettings");
-            b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+            b.setWidth(state, "100%");
             Divider.appendTo(popover,state);
             b = Button.appendTo(popover,state,"Some other button");
-            b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+            b.setWidth(state, "100%");
         }
 
         String java = """
@@ -217,10 +216,10 @@ Other controls have been implemented, and will be added to the control showcase 
        // add buttons into the default main area of the container
        var b = Button.appendTo(popover,state,"Settings");
        b.setIcon(state,"MdOutlineSettings");
-       b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+       b.setWidth(state, "100%");
        Divider.appendTo(popover,state);
        b = Button.appendTo(popover,state,"Some other button");
-       b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+       b.setWidth(state, "100%");
 
 ```
 """;

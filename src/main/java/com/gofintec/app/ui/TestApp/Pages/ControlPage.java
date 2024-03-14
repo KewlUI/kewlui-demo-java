@@ -1342,8 +1342,8 @@ Examples:
 
         Markdown.appendTo(vs,state,"### Color examples:\n");
         var s = Arrays.asList( "#90e0ef", "gray", "red", "green", "blue", "orange", "purple", "yellow",  "teal", "cyan", "pink", "indigo",
-                "theme.colors.pageBgColor", "theme.colors.borderColor", "theme.colors.mainColor", "theme.colors.cardBgColor",
-                "theme.colors.cardColor", "theme.colors.buttonBgColor", "theme.colors.buttonColor", "theme.colors.rowOdd", "theme.colors.rowEven");
+                "theme.colors.page", "theme.colors.primary", "theme.colors.secondary", "theme.colors.accent",
+                 "theme.colors.rowOdd", "theme.colors.rowEven");
         var aw = AutoWrap.appendTo(vs,state);
         for (var col : s) {
             var b = Button.appendTo(aw, state, ""+col);
@@ -1363,41 +1363,46 @@ Examples:
         button.setOnMouseOut(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOut"); });
         button.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnClick"); });
 
+        var txt = Text.appendTo(vs, state, "When the customTheme is used, 'customButton' variant will be made available and below will change style");
+        b = Button.appendTo(vs, state,"variant=customButton");
+        b.setVariant(state, "customButton");
+        b.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ txt.setText(clientState, "customButton pushed"); });
+
         String java = """
-```java
-    Markdown.appendTo(vs,state,"### Sizes:\\n");
+                ```java
+                    Markdown.appendTo(vs,state,"### Sizes:\\n");
 
-    var l = Arrays.asList(SizeEnum.XS,SizeEnum.SM,SizeEnum.MD,SizeEnum.LG);
-    var hs = HStack.appendTo(vs,state);
-    for (var size : l) {
-        var b = Button.appendTo(hs, state, "Size: "+size, size);
-        b.setTooltip(state, "Size = "+size);
-    }
+                    var l = Arrays.asList(SizeEnum.XS,SizeEnum.SM,SizeEnum.MD,SizeEnum.LG);
+                    var hs = HStack.appendTo(vs,state);
+                    for (var size : l) {
+                        var b = Button.appendTo(hs, state, "Size: "+size, size);
+                        b.setTooltip(state, "Size = "+size);
+                    }
 
-    Markdown.appendTo(vs,state,"### Color examples:\\n");
-    var s = Arrays.asList( "#90e0ef", "gray", "red", "green", "blue", "orange", "purple", "yellow",  "teal", "cyan", "pink", "indigo",
-            "theme.colors.pageBgColor", "theme.colors.borderColor", "theme.colors.mainColor", "theme.colors.cardBgColor",
-            "theme.colors.cardColor", "theme.colors.buttonBgColor", "theme.colors.buttonColor", "theme.colors.rowOdd", "theme.colors.rowEven");
-    var aw = AutoWrap.appendTo(vs,state);
-    for (var col : s) {
-        var b = Button.appendTo(aw, state, ""+col);
-        b.setBgColor(state, col);
-        b.setColor(state, "black").setBorder(state, "1px solid black");
-    }
+                    Markdown.appendTo(vs,state,"### Color examples:\\n");
+                    var s = Arrays.asList( "#90e0ef", "gray", "red", "green", "blue", "orange", "purple", "yellow",  "teal", "cyan", "pink", "indigo",
+                                           "theme.colors.page", "theme.colors.primary", "theme.colors.secondary", "theme.colors.accent",
+                                           "theme.colors.rowOdd", "theme.colors.rowEven");                                                     
+                    var aw = AutoWrap.appendTo(vs,state);
+                    for (var col : s) {
+                        var b = Button.appendTo(aw, state, ""+col);
+                        b.setBgColor(state, col);
+                        b.setColor(state, "black").setBorder(state, "1px solid black");
+                    }
 
-    Markdown.appendTo(vs,state,"### Icon Example:\\n");
-    hs = HStack.appendTo(vs,state);
-    var b = Button.appendTo(hs, state, "MdCall icon");
-    b.setIcon(state, "MdCall");
+                    Markdown.appendTo(vs,state,"### Icon Example:\\n");
+                    hs = HStack.appendTo(vs,state);
+                    var b = Button.appendTo(hs, state, "MdCall icon");
+                    b.setIcon(state, "MdCall");
 
-    Markdown.appendTo(vs,state,"### Events:\\n");
-    hs = HStack.appendTo(vs,state);
-    var button = Button.appendTo(hs, state, "OnMouseOver/OnMouseOut/OnClick");
-    button.setOnMouseOver(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOver"); });
-    button.setOnMouseOut(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOut"); });
-    button.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnClick"); });
-```
-                """;
+                    Markdown.appendTo(vs,state,"### Events:\\n");
+                    hs = HStack.appendTo(vs,state);
+                    var button = Button.appendTo(hs, state, "OnMouseOver/OnMouseOut/OnClick");
+                    button.setOnMouseOver(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOver"); });
+                    button.setOnMouseOut(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOut"); });
+                    button.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnClick"); });
+                ```
+                                """;
 
         addExplanationPages(parent, state,"Button", markdownDescription, vs, java);
     }

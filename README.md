@@ -12,6 +12,7 @@ This project is a demo of many of KewlUI's features, and contains basic document
 
 - [Demos](#demos)
 - [Features](#features)
+- [Runnning] (#running)
 - [Status](#status)
 - [Performance](#performance)
 - [Contribute](#contribute)
@@ -19,7 +20,11 @@ This project is a demo of many of KewlUI's features, and contains basic document
 
 ## Demos
 
+This demo code providing visual examples - and documentation on controls. 
+Click here to see the demo running:
+
 [Demo - This code in this repo running on the cloud](https://kewlui.com/kewlui/index.html)
+
 
 ## Features
 
@@ -38,6 +43,14 @@ This project is a demo of many of KewlUI's features, and contains basic document
 - Contains an optional grid window system, allowing windows to be added, moved, resized etc
 
 - Java code uses Spring for /kewlui endpoints, thus spring security and other features can be added as needed
+
+
+## Running
+
+This demo uses Java 17.  Running main in KewlUiDemoApplication will start spring and register endpoints under /kewui
+
+By default, this will serve the demo pages under http://localhost:8080/kewlui/index.html
+
 
 ## Performance
 
@@ -65,7 +78,6 @@ If you have a bug to report, please add relevant code (+ ideally screenshots) so
 
 - [x] KewlUI - Main JavaScript/Java libraries 
 - [x] Java Demo App
-- [ ] Move src jar and javadocs to maven repository 
 - [ ] Set up documentation website at https://kewlui.com
 - [ ] Additional performance optimisations
 - [ ] C#/C++ back ends (start on this once Java is stabilised)
@@ -73,4 +85,6 @@ If you have a bug to report, please add relevant code (+ ideally screenshots) so
 
 ## Disclaimer
 
- Like most/all other code on github: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ Like most/all other code on github: 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ Hopefully that makes the lawyers happy.

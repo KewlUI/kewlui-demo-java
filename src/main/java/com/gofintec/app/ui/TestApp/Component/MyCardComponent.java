@@ -59,7 +59,7 @@ public class MyCardComponent {
 
         Card card = Card.appendTo(parent, globalState);
         card.setWidth(globalState, "99%");
-        card.setBgColor(globalState, "theme.colors.cardBgColor");
+        
         cd.outerCard = card;
 
         VStack vstack = VStack.appendTo(card, globalState);
@@ -67,7 +67,7 @@ public class MyCardComponent {
 
         Card card2 = Card.appendTo(vstack, globalState);
         card2.setWidth(globalState, "90%").setBorderRadius(globalState, "50px");
-        card2.setBgColor(globalState, "theme.colors.cardBgColor");
+        
 
         Markdown markdown = Markdown.appendTo(card2, globalState, Markdown.ControlsEnum.ALL, TextAlignEnum.LEFT);
         markdown.setWidth(globalState, "95%").setHeight(globalState, "100%");

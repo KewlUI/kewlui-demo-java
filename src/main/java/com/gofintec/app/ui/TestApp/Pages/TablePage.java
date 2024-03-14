@@ -241,7 +241,7 @@ A few examples within interactive dashboard.
             msg.setDescription(clientState, "All Servers Pinged OK");
             msg.setValue(clientState, UUID.randomUUID().toString());
         });
-
+        ///////////////////////////
         Divider.appendTo(vs,globalState);
 
         var description = Markdown.appendTo(vs,globalState,"Clicking on the table below can cause a callback");
@@ -261,11 +261,11 @@ A few examples within interactive dashboard.
         """;
         // add column definiitons - we could add a list of column objects, or json string to do the same
         table.setColumns(globalState, columnDefinitions);
-        // if they click on a row, we want to know which one
+        // if they click on a row, we want to know which one - fill in detail
         table.setOnClick(globalState,
                 (eventName, clientContext, control, clientState, event)-> {
                     var row = (Map<String,Object>) event.getContext();
-                    var txt = "Last Row Clicked on: " + row;
+                    var txt = "**Last Row Clicked on: ** " + row;
                     description.setText(clientState, txt); // update just for this user
                 });
 
@@ -277,21 +277,23 @@ A few examples within interactive dashboard.
         var buttonStop = Button.appendTo(hs,globalState,"Stop", Button.VariantEnum.ROUNDED);
         buttonStart.setHeight(globalState,"30px");
         buttonStop.setHeight(globalState,"30px");
-
-        buttonStart.setBgColor(globalState,"Green").setOnClick(globalState,
+        buttonStart.setOnClick(globalState,
                 (eventName, clientContext, control, clientState, event)-> {
                     var row = (Map<String,Object>) event.getContext();
                     var id = (Number) row.get("id");
                     updateTestDataStatus(testData, id.longValue(), "Running");
                     table.setData(globalState, testData);
                 });
-        buttonStop.setBgColor(globalState,"Red").setOnClick(globalState,
+        // Prerender - note we could also return false if the button doesn't make sense, which would stop it from rendering
+        buttonStart.setClientSidePreRender(globalState, "params.props.bgColor =  (params.row['status'] === 'Running') ? 'lightgray' : 'Green';");
+        buttonStop.setOnClick(globalState,
                 (eventName, clientContext, control, clientState, event)-> {
                     var row = (Map<String,Object>) event.getContext();
                     var id = (Number) row.get("id");
                     updateTestDataStatus(testData, id.longValue(), "Stopped");
                     table.setData(globalState, testData);
                 });
+        buttonStop.setClientSidePreRender(globalState, "params.props.bgColor =  (params.row['status'] === 'Running') ? 'Red' : 'lightgray';");
 
         var badge = Badge.appendTo(table,globalState);
         badge.setName(globalState, "status"); // call this status, thus this will be used to show status
@@ -325,8 +327,7 @@ A few examples within interactive dashboard.
 
         String javaDescription = """
 ```java
-
-    var aw = AutoWrap.appendTo(vs,globalState);
+var aw = AutoWrap.appendTo(vs,globalState);
 
     ///////////////////////////
     // Add StatsCard control
@@ -374,7 +375,7 @@ A few examples within interactive dashboard.
         msg.setDescription(clientState, "All Servers Pinged OK");
         msg.setValue(clientState, UUID.randomUUID().toString());
     });
-
+    ///////////////////////////
     Divider.appendTo(vs,globalState);
 
     var description = Markdown.appendTo(vs,globalState,"Clicking on the table below can cause a callback");
@@ -394,11 +395,11 @@ A few examples within interactive dashboard.
     ""\";
     // add column definiitons - we could add a list of column objects, or json string to do the same
     table.setColumns(globalState, columnDefinitions);
-    // if they click on a row, we want to know which one
+    // if they click on a row, we want to know which one - fill in detail
     table.setOnClick(globalState,
             (eventName, clientContext, control, clientState, event)-> {
                 var row = (Map<String,Object>) event.getContext();
-                var txt = "Last Row Clicked on: " + row;
+                var txt = "**Last Row Clicked on: ** " + row;
                 description.setText(clientState, txt); // update just for this user
             });
 
@@ -410,21 +411,23 @@ A few examples within interactive dashboard.
     var buttonStop = Button.appendTo(hs,globalState,"Stop", Button.VariantEnum.ROUNDED);
     buttonStart.setHeight(globalState,"30px");
     buttonStop.setHeight(globalState,"30px");
-
-    buttonStart.setBgColor(globalState,"Green").setOnClick(globalState,
+    buttonStart.setOnClick(globalState,
             (eventName, clientContext, control, clientState, event)-> {
                 var row = (Map<String,Object>) event.getContext();
                 var id = (Number) row.get("id");
                 updateTestDataStatus(testData, id.longValue(), "Running");
                 table.setData(globalState, testData);
             });
-    buttonStop.setBgColor(globalState,"Red").setOnClick(globalState,
+    // Prerender - note we could also return false if the button doesn't make sense, which would stop it from rendering
+    buttonStart.setClientSidePreRender(globalState, "params.props.bgColor =  (params.row['status'] === 'Running') ? 'lightgray' : 'Green';");
+    buttonStop.setOnClick(globalState,
             (eventName, clientContext, control, clientState, event)-> {
                 var row = (Map<String,Object>) event.getContext();
                 var id = (Number) row.get("id");
                 updateTestDataStatus(testData, id.longValue(), "Stopped");
                 table.setData(globalState, testData);
             });
+    buttonStop.setClientSidePreRender(globalState, "params.props.bgColor =  (params.row['status'] === 'Running') ? 'Red' : 'lightgray';");
 
     var badge = Badge.appendTo(table,globalState);
     badge.setName(globalState, "status"); // call this status, thus this will be used to show status
@@ -454,8 +457,8 @@ A few examples within interactive dashboard.
 
     Divider.appendTo(vs,globalState).setPadding(globalState,"30px");
     Markdown.appendTo(vs,globalState, "[Coffee cup animated icon created by Freepik - Flaticon](https://www.flaticon.com/free-animated-icons/coffee-cup)");
-```        
-""";
+```
+                """;
         addExplanationPages(parent, globalState, "Table With Controls", markdownDescription, vs, javaDescription);
     }
 

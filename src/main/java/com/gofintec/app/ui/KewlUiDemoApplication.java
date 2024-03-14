@@ -44,6 +44,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
@@ -72,12 +73,11 @@ public class KewlUiDemoApplication {
 
 	@PostConstruct
 	public void init() throws SocketException {
-
 	}
 
-	private static KewlUI ui = new KewlUI();
-	private static RouterForm routerWindow = new RouterForm();
+	private static KewlUI ui = new KewlUI(new DefaultResourceLoader());
 	private static DashboardForm dashboardWindow = new DashboardForm();
+
 
 
 	/**

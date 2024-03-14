@@ -34,6 +34,7 @@ import com.gofintec.kewlui.base.util.LockGuard;
 import com.gofintec.kewlui.builders.SidebarBuilder;
 import com.gofintec.kewlui.controls.base.VisualControl;
 import com.gofintec.kewlui.controls.base.settings.*;
+import com.gofintec.kewlui.controls.base.theme.VisualStyle;
 import com.gofintec.kewlui.controls.std.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,8 +62,10 @@ public class DashboardForm {
     private final ControlPage controlPage = new ControlPage();
     private final ChartPage chartPage = new ChartPage();
     private final EventPage eventPage = new EventPage();
-    private final ThemingLocalisation localisationPage = new ThemingLocalisation();
+    private final ThemingTemplating localisationPage = new ThemingTemplating();
     private final TablePage tablePage = new TablePage();
+    private final TemplateExamples templatePage = new TemplateExamples();
+
 
     private static final String USER_NAME = "userName";
 
@@ -110,7 +113,7 @@ public class DashboardForm {
                 .addPage("Examples/Realtime","Realtime", (parent, state)-> realtimePage.addPage(parent,state))
                 .addPage("Examples/Dashboard","Dashboard", (parent, state)-> tablePage.addDashboard(parent,state))
                 .addPage("Examples/Tables","Tables", (parent, state)-> tablePage.addTable(parent,state))
-
+                .addPage("Examples/ServerTemplate","Templates ", (parent, state)-> templatePage.addTemplatingExamples(parent,state))
 
                 .addPage("Components", "**Components**", null, true)
                 .addPage("Components/Containers","Containers", (parent, state)-> containerPage.AddOtherPositions(parent,state))
@@ -124,7 +127,7 @@ public class DashboardForm {
                 .addPage("Data/DatatableSql","DataTable SQL", (parent, state)-> dataPage.addUserTablePage(parent,state))
                 .addPage("Data/Synced","Synced DataTable", (parent, state)-> dataPage.addSyncedDatatable(parent,state))
 
-                .addPage("Theming","Theming/Localisation", (parent, state)-> localisationPage.addThemingExamples(parent,state))
+                .addPage("Theming","Templating/Theming", (parent, state)-> localisationPage.addThemingExamples(parent,state))
                 .addPage("GitHub","[GitHub](https://github.com/KewlUI)", null)
 
                 .appendTo(dashboard,globalState);
@@ -239,7 +242,7 @@ public class DashboardForm {
      */
     private static void addNavbarSimple (StateData state, VisualControl nb) {
 
-        var text = Heading.appendTo(nb,state,"KewlUI").setColor(state,"theme.colors.altColor");
+        var text = Heading.appendTo(nb,state,"KewlUI");
         text.setContainerPosition(state, ContainerPositionEnum.WEST);
         text.setProperty(state, "transform", "skewY(-5deg)");
 
@@ -256,14 +259,14 @@ public class DashboardForm {
             ib.setSrc(state, "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&h=50&q=80");
 
             var b = Button.appendTo(popover,state,"Example");
-            b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+            b.setWidth(state, "100%");
             Divider.appendTo(popover,state);
             b = Button.appendTo(popover,state,"Settings");
             b.setIcon(state,"MdOutlineSettings");
-            b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+            b.setWidth(state, "100%");
             Divider.appendTo(popover,state);
             b = Button.appendTo(popover,state,"Billing");
-            b.setBgColor(state, "theme.colors.buttonBgColor").setColor(state, "theme.colors.buttonColor").setWidth(state, "100%");
+            b.setWidth(state, "100%");
         }
 
         var modalDialog = ModalDialog.appendTo(nb,state);
@@ -345,29 +348,50 @@ public class DashboardForm {
      * @param form The form to add the custom theme to.
      */
     private void addCustomTheme (StateData globalState, Form form) {
+        /*
+            Primary Color: Choose the most vibrant or dominant color from the palette as the primary color. This color will be used for the most important interactive elements like primary action buttons, active menu items, and key highlights. If "The Deep Blue" palette includes a standout blue, for instance, it could serve as a strong primary color that draws attention and encourages interaction.
+            Secondary Color: Select a color that complements the primary color yet is distinct enough to be used for secondary actions, such as secondary buttons, hover states, or less critical information. This could be a lighter or more subdued tone within the same color family or a contrasting color from the palette that works well with the primary color.
+            page Color: Pick a neutral or very subtle color from the palette for the background. This should be a color that can recede to the back, allowing content and interactive elements to stand out. If the palette includes a light grey or a very soft blue, it could effectively serve as a calm, unobtrusive background that complements the other colors.
+            Accent Color: Use the most attention-grabbing color in the palette (that isn't the primary color) for accents such as notifications, alerts, and indicators. This color should be used sparingly to ensure it remains effective in drawing the user's eye to important information or status changes within the dashboard.
+            other<letter> is used for charts etc
+            base: used color for interpolating colors, e.g. primary_50 = 50% of primary color and 50% of base
+
+            You can also add default colors for components, e.g. Button below
+         */
         var customTheme = """
-                {
-                  "customTheme": {
-                    "theme": {
+                {                           
                       "colors": {
-                        "pageBgColor": "#FFFFFF",
-                        "borderColor": "#FCCB69",
-                        "mainColor": "#2B8A3E", "altColor": "#F4F5F7",
-                        "cardBgColor": "#FEF9C3", "cardColor": "#2B8A3E",
-                        "buttonBgColor": "#FF8360", "buttonColor": "#FFFFFF",
-                        "header":"theme.colors.borderColor", "rowOdd": "#FFFFFF", "rowEven": "#FEF9C3",
-                        "hover": "#FF8360",
-                        "selectBgColor" : "theme.colors.pageBgColor", "accordionButtonColor" : "green.300",
-                        "Chart": {
-                          "a": "#FF8360", "b": "#E8E288", "c": "#7DCE82", "d": "#51A3A3", "e": "#B2C326", "f": "#C879FF",
-                          "g": "#FF61A6", "h": "#FFAA4C", "i": "#55DDE0", "j": "#F76B8A", "k": "#9B5DE5", "l": "#F7B32B",
-                          "m": "#FCCB69", "n": "#00BBF9", "o": "#FFD166"
-                        }
-                      }
-                    }
-                  }
+                            "base": "white",
+                            "page": "#FFFFFF",    "pageText": "#37474F",                    
+                            "primary": "#FBC02D", "primaryText": "263238",                    
+                            "secondary": "#FF9800", "secondaryText": "white",                    
+                            "accent": "#C2185B", "accentText": "white",
+                         
+                            "otherA": "#FF8360", "otherB": "#E8E288", "otherC": "#7DCE82", "otherD": "#51A3A3",
+                            "otherE": "#B2C326", "otherF": "#C879FF", "otherG": "#FF61A6", "otherH": "#FFAA4C",
+                            "otherI": "#55DDE0", "otherJ": "#F76B8A", "otherK": "#9B5DE5", "otherL": "#F7B32B",
+                            "otherM": "#FCCB69", "otherN": "#00BBF9", "otherO": "#FFD166",
+                            
+                            "Button": { "bgColor": "theme.colors.accent", "color": "theme.colors.accentText" }                            
+                      }                   
+                 
                 }""";
-        form.setThemeConfig(globalState, customTheme);
+
+        VisualStyle myThemeStyle = VisualStyle.fromJson(customTheme); // load custom theme from json above, at least the colors
+        myThemeStyle.setPage("white").setPageText("#304040"); // we can also set colors this way
+
+        // lets create a custom button style - we will call this variant 'customButton'
+        // to use it later, use setVariant(state,"customButton") on the button, and the default you set here will be applied
+        myThemeStyle.setComponentBgColor(Button.class, "theme.colors.accent");
+
+        Button b = new Button(globalState);
+        b.setWidth(globalState, "300px").setBgColor(globalState, "theme.colors.secondary").setColor(globalState, "theme.colors.secondaryText");
+        b.setIcon(globalState, "MdCall").setBorderRadius(globalState, "50%");
+        myThemeStyle.setComponent(b, globalState, "customButton");
+
+        Map<String,VisualStyle> themes = new HashMap<>();
+        themes.put("customTheme", myThemeStyle); // add in a custom theme called "customTheme", it will be selectable in top right dropdown
+        form.setThemeConfig(globalState, themes);
     }
 
 }

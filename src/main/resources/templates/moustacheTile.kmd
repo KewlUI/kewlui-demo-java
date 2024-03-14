@@ -1,0 +1,25 @@
+<Meta description="An example control you might find on a dashboard detailing Sales and Visitors. Using {{moustache}} and icons."/>
+
+<VStack xcontrol="dashboardTile" width="100%" height="100%" alignItems="center" justifyContent="center" bgColor="theme.colors.page" color="theme.colors.pageText">
+  <HStack spacing={4} alignItems="center">
+    <Icon icon="MdTrendingUp" color="theme.colors.accent" iconSize={12} />
+    <Text fontSize="xl" fontWeight="bold" color="theme.colors.primary">{{subject|Dashboard Overview}}</Text>
+  </HStack>
+  <VStack spacing={4} align="stretch" width="80%">
+    <Box bgColor="theme.colors.secondary" color="theme.colors.secondaryText" p={4} borderRadius="lg">
+      <Text fontSize="md">Total Sales</Text>
+      <Text fontSize="2xl" fontWeight="semibold">{{totalSales}}</Text>
+    </Box>
+    <Progress xcontrol="progressSales" value={70} bgColor="theme.colors.primary" height="10px" />
+  </VStack>
+  <HStack spacing={4} alignItems="center">
+    <Box bgColor="theme.colors.accent" color="theme.colors.accentText" p={4} borderRadius="lg">
+      <Text fontSize="md">New Visitors</Text>
+      <Text fontSize="2xl" fontWeight="semibold">{{newVisitors}}</Text>
+    </Box>
+    <Box bgColor="theme.colors.primary" color="theme.colors.primaryText" p={4} borderRadius="lg">
+        <Text fontSize="md">Today Sales</Text>
+        <Text fontSize="2xl" fontWeight="semibold">{{sales}}</Text>
+    </Box>
+  </HStack>
+</VStack>

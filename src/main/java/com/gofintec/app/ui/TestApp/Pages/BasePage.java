@@ -53,8 +53,10 @@ public class BasePage {
     protected void addExplanationPages(VisualControl tparent, StateData state, String accordionName, String description, VisualControl theControl, String java, boolean isOpen )
     {
         var ac = SimpleAccordion.appendTo(tparent, state, accordionName);
-        ac.setBgColor(state, "gray.100");
+        ac.setBgColor(state, "theme.colors.accent_40");
         ac.setDefaultOpen(state, isOpen);
+
+        Markdown.appendTo(ac, state, description, Markdown.ControlsEnum.ALL);
 
         VStack vs = null;
         TabPanels tabPanels = null;
@@ -77,7 +79,7 @@ public class BasePage {
             vs = VStack.appendTo(ac, state);
         }
 
-        Markdown.appendTo(vs,state,description);
+
         vs.addChild(state,theControl);
 
         if (tabPanels != null)
