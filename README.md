@@ -33,6 +33,10 @@ Click here to see the demo running:
 - Large number of Containers, Controls, Charts and Event system
 
 - Built-in Theming, template, and localisation support
+  - Client side and server side templating support
+  - Ability to create own themes
+  - Create your own component styles (variants)
+  - Localisation - Allow controls have dynamic text based on language settings
   
 - Data binding 
   - Server and client are synced in their value changes
@@ -78,13 +82,20 @@ If you have a bug to report, please add relevant code (+ ideally screenshots) so
 
 - [x] KewlUI - Main JavaScript/Java libraries 
 - [x] Java Demo App
+- [ ] AI generation/support on demo
 - [ ] Set up documentation website at https://kewlui.com
 - [ ] Additional performance optimisations
+- [ ] Drag and drop builder
 - [ ] C#/C++ back ends (start on this once Java is stabilised)
 
+
+## Dependencies Copyright
+
+Minified js and packaged jar files are Copyrighted and may NOT be decompiled/deminified for any use including AI training.  
 
 ## Disclaimer
 
  Like most/all other code on github: 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  Hopefully that makes the lawyers happy.
+

@@ -137,7 +137,63 @@ This example scans the local filesystem for *.kmd files and renders them as cont
 
 
         var java = """
-                """;
+```java
+    Divider.appendTo(vs, state);
+
+    try {
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        Resource[] resources = resolver.getResources("classpath*:templates/**/*.kmd");
+
+        AutoWrap wr = AutoWrap.appendTo(vs, state);
+
+
+        for (Resource resource : resources) {
+            String name = resource.getFilename();
+            String content = new String(resource.getInputStream().readAllBytes());
+
+            var vstck = VStack.appendTo(wr, state);
+            vstck.setWidth(state, "400px");
+            vstck.setPadding(state, "10px");
+            vstck.setBoxShadow(state,"5px").setBorder(state, "5px solid black");
+
+            var templateDesc = Markdown.appendTo(vstck, state, "", Markdown.ControlsEnum.ALL);
+            var box = Box.appendTo(vstck, state);
+            box.setPadding(state, "10px").setBorder(state, "1px solid black").setAlign(state, AlignItemsEnum.FLEX_START);
+
+            // ok, we can give template KVs which modify {{moustache}} variables within the Text field (p.s. many controls use Value rather than Text as a way of showing values)
+            // So a better use of these templates might be filling in input values sourced from a database
+            Map<String,String> moustacheValues = name.contains("moustache") ? Map.of("newVisitors", "100", "sales","120") : null;
+
+            var generated = GenFromTemplate.appendFromTemplate(box, state, content, moustacheValues);
+
+            // Set top level description from file and any metadata in the file
+            var metaDesc = generated.getMetaData().get("description");
+            templateDesc.setText(state, String.format("Template file: %s\\n\\n<br/>%s<br/>", name, metaDesc==null ?"": "Desc: "+metaDesc+".\\n<br/>"));
+
+            var description = String.format("%s Contains the following Controls:\\n\\n- %s", name, generated.getControls().keySet().stream().collect(Collectors.joining(".\\n- ")));
+            var componentMarkDown = Markdown.appendTo(vstck, state, description, Markdown.ControlsEnum.ALL);
+
+            EventCallback onChangeHandler = (eventName, clientContext, control, clientState, event)-> {
+                StringBuilder desc = new StringBuilder(String.format("%s Contains the following Controls:\\n\\n", name));
+                generated.getControls().forEach((key, vcontrol) -> {
+                    var val = vcontrol.getValue(clientState);
+                    if (val==null)
+                        desc.append("- "+key+"\\n");
+                    else
+                        desc.append("- "+key+" = "+val+"\\n");
+                });
+                componentMarkDown.setText(state, desc.toString());
+            };
+
+            generated.getControls().forEach((key, vcontrol) -> {
+                vcontrol.setOnChange(state, onChangeHandler);
+            });
+        }
+    } catch (Exception e) {
+        Text.appendTo(vs, state, "Error: "+e.getMessage());
+    }
+```
+""";
 
         addExplanationPages(parent, state, "Server side templating examples", markdownDescription, vs, java);
     }

@@ -31,8 +31,13 @@ import com.gofintec.kewlui.controls.base.settings.*;
 import com.gofintec.kewlui.controls.std.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.*;
 
 /**
  * Control example page - shows a number of examples of controls, along with source code on how to achieve it
@@ -55,24 +60,25 @@ public class ControlPage extends BasePage {
 
 KewlUI offers a wide range of controls that can be used in your application.
 
-- Avatar:  Display a user's profile picture
-- Button: Button control that cause callbacks on the server side.
-- Checkbox: A checkbox is a graphical control element that allows for multiple options to be selected or deselected by the user. It is often used to represent boolean values, such as on/off or true/false, in a user interface. 
-- Editable:  The Editable control allows users to edit text in a GUI by clicking on it and typing directly into it.
-- TextArea: The Textarea control allows users to edit multi-line text within a GUI by clicking on it and typing directly into it.
-- Input: The Input control is a user interface element that allows users to input and edit text or numerical data.  It could be used to create forms for data collection or search bars for filtering information.
-- FormInput:  Input that adds in helpers, Performs field validation  
-- PinInput: The PinInput control is used to create a hidden and customizable input field for entering PIN codes.
-- Radio: Radio control is a GUI element that allows users to select one option out of multiple options presented in a list.
-- Slider:  A slider control is a user interface element that enables the selection of a value by sliding a thumb-like element along a horizontal or vertical track. 
-- Select: The Select control is a form element that enables users to select an option from a pre-defined list or input values.
-- Switch: The Switch control is a user interface element that allows users to toggle between two states.
-- Badge: The badge control enables the display of a small label or indicator on a user interface to provide information or functionality. It allows for easy identification of specific items or actions and can provide context to users.
-- Markdown: Component that allows rendering of text areas using markdown, including code sections
-- Divider: The Divider displays a thin horizontal or vertical line that can be used to separate content.
-- List: List control is a used for displaying a list of items.
-- StatVanilla: Visual control for showing statistics in a system
-
+- Avatar - Display a user's profile picture
+- Badge - The badge control enables the display of a small label or indicator on a user interface to provide information or functionality. It allows for easy identification of specific items or actions and can provide context to users.
+- Button - Button control that cause callbacks on the server side.
+- Checkbox - A checkbox is a graphical control element that allows for multiple options to be selected or deselected by the user. It is often used to represent boolean values, such as on/off or true/false, in a user interface.
+- Datepicker - Simple DatePicker Control
+- Divider - The Divider displays a thin horizontal or vertical line that can be used to separate content.
+- Editable - The Editable control allows users to edit text in a GUI by clicking on it and typing directly into it.
+- FormInput - Input that adds in helpers, Performs field validation
+- Input - The Input control is a user interface element that allows users to input and edit text or numerical data. It could be used to create forms for data collection or search bars for filtering information.
+- List - List control is a used for displaying a list of items.
+- Markdown - Component that allows rendering of text areas using markdown, including code sections
+- PinInput - The PinInput control is used to create a hidden and customizable input field for entering PIN codes.
+- Radio - Radio control is a GUI element that allows users to select one option out of multiple options presented in a list.
+- Select - The Select control is a form element that enables users to select an option from a pre-defined list or input values.
+- Slider - A slider control is a user interface element that enables the selection of a value by sliding a thumb-like element along a horizontal or vertical track.
+- StatVanilla - Visual control for showing statistics in a system
+- Switch - The Switch control is a user interface element that allows users to toggle between two states.
+- TextArea - The Textarea control allows users to edit multi-line text within a GUI by clicking on it and typing directly into it.
+- Uploader - Allows file uploading
 
 If a control offers an Icon, this can be set to the icons name (if the icon pack has been loaded) 
 
@@ -83,6 +89,7 @@ If a control offers an Icon, this can be set to the icons name (if the icon pack
         addBadges(vs, state);
         addButton(vs,state);
         addCheckbox(vs,state);
+        addDatePicker(vs, state);
         addDivider(vs, state);
 
         addEditable(vs, state);
@@ -101,6 +108,7 @@ If a control offers an Icon, this can be set to the icons name (if the icon pack
         addStats(vs, state);
         addSwitch(vs, state);
         addTooltip(vs, state);
+        addUploader(vs, state);
 
 
 
@@ -111,6 +119,8 @@ Other controls have been implemented, and will be added to the control showcase 
 """;
         Markdown.appendTo(vs,state,markdownDescription, Markdown.ControlsEnum.NONE);
     }
+
+
 
     private void addEditable(VStack parent, StateData state) {
         String markdownDescription = """
@@ -1369,41 +1379,376 @@ Examples:
         b.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ txt.setText(clientState, "customButton pushed"); });
 
         String java = """
-                ```java
-                    Markdown.appendTo(vs,state,"### Sizes:\\n");
+```java
+        Markdown.appendTo(vs,state,"### Sizes:\\n");
 
-                    var l = Arrays.asList(SizeEnum.XS,SizeEnum.SM,SizeEnum.MD,SizeEnum.LG);
-                    var hs = HStack.appendTo(vs,state);
-                    for (var size : l) {
-                        var b = Button.appendTo(hs, state, "Size: "+size, size);
-                        b.setTooltip(state, "Size = "+size);
-                    }
+        var l = Arrays.asList(SizeEnum.XS,SizeEnum.SM,SizeEnum.MD,SizeEnum.LG);
+        var hs = HStack.appendTo(vs,state);
+        for (var size : l) {
+            var b = Button.appendTo(hs, state, "Size: "+size, size);
+            b.setTooltip(state, "Size = "+size);
+        }
 
-                    Markdown.appendTo(vs,state,"### Color examples:\\n");
-                    var s = Arrays.asList( "#90e0ef", "gray", "red", "green", "blue", "orange", "purple", "yellow",  "teal", "cyan", "pink", "indigo",
-                                           "theme.colors.page", "theme.colors.primary", "theme.colors.secondary", "theme.colors.accent",
-                                           "theme.colors.rowOdd", "theme.colors.rowEven");                                                     
-                    var aw = AutoWrap.appendTo(vs,state);
-                    for (var col : s) {
-                        var b = Button.appendTo(aw, state, ""+col);
-                        b.setBgColor(state, col);
-                        b.setColor(state, "black").setBorder(state, "1px solid black");
-                    }
+        Markdown.appendTo(vs,state,"### Color examples:\\n");
+        var s = Arrays.asList( "#90e0ef", "gray", "red", "green", "blue", "orange", "purple", "yellow",  "teal", "cyan", "pink", "indigo",
+                               "theme.colors.page", "theme.colors.primary", "theme.colors.secondary", "theme.colors.accent",
+                               "theme.colors.rowOdd", "theme.colors.rowEven");                                                     
+        var aw = AutoWrap.appendTo(vs,state);
+        for (var col : s) {
+            var b = Button.appendTo(aw, state, ""+col);
+            b.setBgColor(state, col);
+            b.setColor(state, "black").setBorder(state, "1px solid black");
+        }
 
-                    Markdown.appendTo(vs,state,"### Icon Example:\\n");
-                    hs = HStack.appendTo(vs,state);
-                    var b = Button.appendTo(hs, state, "MdCall icon");
-                    b.setIcon(state, "MdCall");
+        Markdown.appendTo(vs,state,"### Icon Example:\\n");
+        hs = HStack.appendTo(vs,state);
+        var b = Button.appendTo(hs, state, "MdCall icon");
+        b.setIcon(state, "MdCall");
 
-                    Markdown.appendTo(vs,state,"### Events:\\n");
-                    hs = HStack.appendTo(vs,state);
-                    var button = Button.appendTo(hs, state, "OnMouseOver/OnMouseOut/OnClick");
-                    button.setOnMouseOver(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOver"); });
-                    button.setOnMouseOut(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOut"); });
-                    button.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnClick"); });
-                ```
-                                """;
+        Markdown.appendTo(vs,state,"### Events:\\n");
+        hs = HStack.appendTo(vs,state);
+        var button = Button.appendTo(hs, state, "OnMouseOver/OnMouseOut/OnClick");
+        button.setOnMouseOver(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOver"); });
+        button.setOnMouseOut(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnMouseOut"); });
+        button.setOnClick(state,  (eventName, clientContext, control, clientState, event)->{ button.setText(clientState, "OnClick"); });
+```
+""";
 
         addExplanationPages(parent, state,"Button", markdownDescription, vs, java);
+    }
+
+    private void addUploader (VStack parent, StateData globalState) {
+        String markdownDescription = """
+## Uploader
+
+The `Uploader` component enables users to upload files to the server. It provides customizable settings for file types, multiple file uploads, and limits on file size and number.
+
+### Properties
+
+- ***accept*** 
+string - Sets the types of files that are accepted. By default, it accepts all file types (`*`). Can be used to restrict to specific file types, like `"image/*"` for all images, or `".pdf"` for PDF files only.
+- ***multiple*** 
+boolean - If `true`, allows multiple files to be uploaded simultaneously. Defaults to `true`.
+- ***maxSizeBytes*** 
+long - Maximum file size allowed for upload, in bytes. This is a client-side check.
+- ***maxFiles*** 
+integer - Maximum number of files that can be uploaded at once.
+- ***submitButtonText*** 
+string - Text displayed on the submit button. Supports Mustache templating for dynamic text.
+- ***addFilesText*** 
+string - Text for the add files section, e.g., "Drag Files Here or Click to Browse." Also supports Mustache templating for dynamic content.
+
+Callback:  onUpload is called when uploading is performed
+    - Value is set to List<MultipartFile>.  (value reset to null after callback)
+    - Throwing exception will result in upload error
+
+""";
+        var vs = new VStack(globalState);
+        vs.setAlignItems(globalState, AlignItemsEnum.FLEX_START);
+
+        var hs = HStack.appendTo(vs,globalState);
+        var up = Uploader.appendTo(hs, globalState);
+        var information = Markdown.appendTo(hs, globalState, Markdown.ControlsEnum.ALL);
+
+        // Uploader/OnUpload callback is a bit different - a List<MultipartFile> is temporarily stored
+        // in the clientState value for this control.  At the end of this process, the value is cleared back to null
+        up.setOnUpload(globalState,  (eventName, clientContext, control, clientState, event)-> {
+            var downloadedFiles = new ArrayList<File>();
+            StringBuilder sb = new StringBuilder("### Result of upload\n<br/>List of files uploaded:\n<br/>\n");
+            try {
+                List<MultipartFile> files = up.getValue(clientState);
+                for (var file : files) {
+                    // download the file to a temp file on this machine....
+                    var destFile = new File(UUID.randomUUID().toString()+".tmp");
+                    downloadedFiles.add(destFile);
+
+                    try (InputStream inputStream = file.getInputStream()) {
+                        Files.copy(inputStream, destFile.toPath().toAbsolutePath(), StandardCopyOption.REPLACE_EXISTING);
+                    }
+                    sb.append(String.format("Name: %s  OriginalFileName: %s ContentType: %s Reported Size: %d Actual Size: %d.\n<br/>", file.getName(), file.getOriginalFilename(), file.getContentType(), file.getSize(), destFile.length()));
+                }
+                information.setText(clientState, sb.toString());
+            }
+            catch (Exception ex) {
+                Log.error("Exception thrown in upload processor", ex);
+                information.setText(clientState, "Exception thrown in upload processor "+ex.getMessage());
+            } finally {
+                // finally, we are done, clean up the temp files we downloaded.
+                for (var file : downloadedFiles) {
+                    if (file.exists())
+                        file.delete();
+                }
+            }
+        });
+
+        String java = """
+```java
+  var hs = HStack.appendTo(vs,globalState);
+        var up = Uploader.appendTo(hs, globalState);
+        var information = Markdown.appendTo(hs, globalState, Markdown.ControlsEnum.ALL);
+
+        // Uploader/OnUpload callback is a bit different - a List<MultipartFile> is temporarily stored
+        // in the clientState value for this control.  At the end of this process, the value is cleared back to null
+        up.setOnUpload(globalState,  (eventName, clientContext, control, clientState, event)-> {
+            var downloadedFiles = new ArrayList<File>();
+            StringBuilder sb = new StringBuilder("### Result of upload\\n<br/>List of files uploaded:\\n<br/>\\n");
+            try {
+                List<MultipartFile> files = up.getValue(clientState);
+                for (var file : files) {
+                    // download the file to a temp file on this machine....
+                    var destFile = new File(UUID.randomUUID().toString()+".tmp");
+                    downloadedFiles.add(destFile);
+
+                    try (InputStream inputStream = file.getInputStream()) {
+                        Files.copy(inputStream, destFile.toPath().toAbsolutePath(), StandardCopyOption.REPLACE_EXISTING);
+                    }
+                    sb.append(String.format("Name: %s  OriginalFileName: %s ContentType: %s Reported Size: %d Actual Size: %d.\\n<br/>", file.getName(), file.getOriginalFilename(), file.getContentType(), file.getSize(), destFile.length()));
+                }
+                information.setText(clientState, sb.toString());
+            }
+            catch (Exception ex) {
+                Log.error("Exception thrown in upload processor", ex);
+                information.setText(clientState, "Exception thrown in upload processor "+ex.getMessage());
+            } finally {
+                // finally, we are done, clean up the temp files we downloaded.
+                for (var file : downloadedFiles) {
+                    if (file.exists())
+                        file.delete();
+                }
+            }
+        });
+```
+""";
+        addExplanationPages(parent, globalState,"Uploader", markdownDescription, vs, java);
+    }
+
+    private void addDatePicker(VStack parent, StateData state) {
+        String markdownDescription = """
+    ### DatePicker
+
+    The DatePicker control allows users to select a date from a visual calendar interface. 
+    Has Options to set min and max dates
+
+    In the example below, we demonstrate how to add a DatePicker and handle date selection events.
+    """;
+
+        // Creating the container
+        var vs = new VStack(state);
+        vs.setAlignItems(state, AlignItemsEnum.FLEX_START);
+        vs.setTextAlign(state, TextAlignEnum.LEFT);
+
+        // Adding explanatory text
+        Text.appendTo(vs, state, "Select a date:");
+
+        // Adding DatePicker -  can be ms or YYYY-MM-DD
+        var datePicker = DatePicker.appendTo(vs, state);
+        datePicker.setMinDate(state, "1900-01-01"); // Set minimum date - can be ms or YYYY-MM-DD
+        datePicker.setMaxDate(state, "2050-01-01"); // Set maximum date
+
+        //2024-03-21T20:43:05.547Z
+
+        // Adding a callback to handle date selection
+        var selectedDateText = Text.appendTo(vs, state, "No date selected");
+        datePicker.setOnChange(state, (eventName, clientContext, control, clientState, event) -> {
+            var selectedDate = datePicker.getValue(clientState); // Get selected date
+            selectedDateText.setText(clientState, "Selected date: " + selectedDate);
+        });
+
+        var cb = Checkbox.appendTo(vs,state,"Include time", DefaultValue.set(false) );
+        cb.setOnChange(state, (eventName, clientContext, control, clientState, event) -> {
+            Boolean value = cb.getValue(clientState); // Get selected date
+            datePicker.setHasTime(clientState,value);
+        });
+
+        String javaCode = """
+```java
+
+   // Adding explanatory text
+   Text.appendTo(vs, state, "Select a date:");
+
+   // Adding DatePicker -  can be ms or YYYY-MM-DD
+   var datePicker = DatePicker.appendTo(vs, state);
+   datePicker.setMinDate(state, "1900-01-01"); // Set minimum date - can be ms or YYYY-MM-DD
+   datePicker.setMaxDate(state, "2050-01-01"); // Set maximum date
+
+   //2024-03-21T20:43:05.547Z
+
+   // Adding a callback to handle date selection
+   var selectedDateText = Text.appendTo(vs, state, "No date selected");
+   datePicker.setOnChange(state, (eventName, clientContext, control, clientState, event) -> {
+       var selectedDate = datePicker.getValue(clientState); // Get selected date
+       selectedDateText.setText(clientState, "Selected date: " + selectedDate);
+   });
+
+   var cb = Checkbox.appendTo(vs,state,"Include time", DefaultValue.set(false) );
+   cb.setOnChange(state, (eventName, clientContext, control, clientState, event) -> {
+       Boolean value = cb.getValue(clientState); // Get selected date
+       datePicker.setHasTime(clientState,value);
+   });
+```
+""";
+        // Add explanation pages (assuming this method is available and works similarly to other examples)
+        addExplanationPages(parent, state, "DatePicker", markdownDescription, vs, javaCode);
+    }
+
+
+    public void addExtendControl (VisualControl parent, StateData globalState) {
+
+        String markdownDescription = """
+## Custom Control
+
+KEWLUI can be extended with React Components, JavaScript components, and so on.
+    
+The Custom control allows integrating external controls into the framework.
+
+<br/>
+    
+### Registering functions
+    
+Load the javascript in your html before KewlUI loads.
+Then in a script block:
+
+        // Initialize the registry if it does not already exist
+        window.KEWLUI_CONTROLS = window.KEWLUI_CONTROLS || {};
+
+<br/>
+KEWLUI_CONTROLS holds a dictionary that maps between names and functions.
+
+The function is passed a **param** object, which has the following fields
+    - targetId - location where to render the control
+    - props - props to pass to the control
+    - eventHandlers - dictionary (name->function) of event handlers registered, e.g "onMouseOver"
+    - text - translated text field
+    - value - value field
+    - setValue(value) - function to call if the value of this contol changes    
+    - isSmallScreen - set true if this appears to be mobile
+    - rebuild() - function to call to perform a complete rerender  (will stop this control, clean up, build a new one)
+    - colors - dictionary containing color names, such as "primary", "pageText" etc - used to pass on theming.
+<br/>
+The function should return either null/unknown, or another function that should be called on destruction of the control. 
+    - Cleanup function receives **param** dictionary, which contains targetId above.
+
+<br/>
+### Registering a function (Javascript control)
+
+In the below example, we register a function 'plainJSFunction', which when called will update the innerHTML of a target ID.
+<br/>
+
+```js
+
+    window.KEWLUI_CONTROLS['plainJSFunction'] = function(params) {
+      const {targetId, props, eventHandlers, text, value, setValue, isSmallScreen, rebuild, colors} = params;
+      const element = document.getElementById(targetId);
+      if(element) {
+         element.innerHTML = `<div>Updated by plain JavaScript function: Value: ${value} Username ${props.userName}</div>`;
+      }
+      return null; // returning null == no cleanup necessary
+    };
+```
+
+<br/>
+
+### Registering a React control via Function
+
+The React case is slightly more complicated, as react needs compilation into a final js file.
+
+An example react app which registers a control:
+
+```js
+
+    import ReactDOM from 'react-dom';
+    import MyReactComponent from './MyReactComponent'; // Path to your React component
+    
+    window.KEWLUI_CONTROLS = window.KEWLUI_CONTROLS || {};
+    
+    window.KEWLUI_CONTROLS['renderReactComponent'] = function(params) {
+      const {targetId, props, text, value, setValue} = params;
+      const element = document.getElementById(targetId);
+      if(element) {
+        // Use ReactDOM.render to render the React component into the target element
+        ReactDOM.render(<MyReactComponent {...props} />, element);
+      }
+    };
+```
+
+React will then build a js file, which should be included in the html before the KEWLUI js.
+
+<br/><br/>
+### Calling the control
+
+The control is different in that most normal props (such as width etc) are simply added to props and not actioned
+Ie setWidth will not change the width of the control.  If this is needed, surround it with a Box of the dimensions needed.
+
+```java
+    var custom = Custom.appendTo(parent, state);
+    custom.setControlName(state, "plainJSFunction");
+    custom.setValue(state, 1234); // value will be passed in params.value    
+    custom.setProperty(state, "userName", "Bob Gnarley"); // gets added to props
+```
+<br/>
+
+Note - above controls will be rendered 100ms after other controls are rendered.    
+This is done as a kind of "debounce" to reduce painting calls.
+<br/>
+""";
+
+        // Creating the container
+        var vs = new VStack(globalState);
+        vs.setAlignItems(globalState, AlignItemsEnum.FLEX_START);
+        vs.setTextAlign(globalState, TextAlignEnum.LEFT);
+
+        Text.appendTo(vs,globalState, "Rendering Custom control within box below");
+        var box = Box.appendTo(vs, globalState);
+        box.setPadding(globalState, "10px").setBorder(globalState, "1px solid black").setAlign(globalState, AlignItemsEnum.FLEX_START);
+        box.setBgColor(globalState, "theme.colors.secondary_50");
+
+        var custom = Custom.appendTo(box, globalState);
+        custom.setControlName(globalState, "plainJSFunction");
+        custom.setValue(globalState, 1234); // value will be passed in params.value
+        custom.setProperty(globalState, "userName", "Bob Gnarley"); // gets added to props
+
+        Divider.appendTo(vs,globalState);
+
+        Timer timer = new Timer();
+        Random r = new Random();
+        timer.scheduleAtFixedRate(new TimerTask() {  // test updating value on custom element
+            @Override
+            public void run() {
+                custom.setValue(globalState, r.nextInt(1000)); // update control with random value
+            }
+        }, 1000, 2000);
+
+        var custom2 =  Custom.appendTo(vs, globalState);
+        custom2.setControlName(globalState, "aButton");
+
+
+        var java = """
+```java
+    Text.appendTo(vs,globalState, "Rendering Custom control within box below");
+    var box = Box.appendTo(vs, globalState);
+    box.setPadding(globalState, "10px").setBorder(globalState, "1px solid black").setAlign(globalState, AlignItemsEnum.FLEX_START);
+    box.setBgColor(globalState, "theme.colors.secondary_50");
+
+    var custom = Custom.appendTo(box, globalState);
+    custom.setControlName(globalState, "plainJSFunction");
+    custom.setValue(globalState, 1234); // value will be passed in params.value
+    custom.setProperty(globalState, "userName", "Bob Gnarley"); // gets added to props
+
+    Divider.appendTo(vs,globalState);
+
+    Timer timer = new Timer();
+    Random r = new Random();
+    timer.scheduleAtFixedRate(new TimerTask() {  // test updating value on custom element
+        @Override
+        public void run() {
+            custom.setValue(globalState, r.nextInt(1000)); // update control with random value
+        }
+    }, 1000, 2000);
+```
+                """;
+
+        // Add explanation pages (assuming this method is available and works similarly to other examples)
+        addExplanationPages(parent, globalState, "Extending", markdownDescription, vs, java, true);
+
     }
 }

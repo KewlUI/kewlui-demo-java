@@ -29,7 +29,6 @@ SOFTWARE.
 
 
 import com.gofintec.app.ui.TestApp.Forms.DashboardForm;
-import com.gofintec.app.ui.TestApp.Forms.RouterForm;
 import com.gofintec.kewlui.KewlUI;
 import com.gofintec.kewlui.messages.LoadComponentMsg;
 import com.gofintec.kewlui.web.api.ComponentGetterAllow;
@@ -62,7 +61,7 @@ import java.net.SocketException;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @ComponentScan(
 		// Scans specific base packages for Spring components, using fully qualified names for bean naming.
-		basePackages = {"com.gofintec.kewlui.web.base", "com.gofintec.kewlui.web.api" , "com.gofintec.kewlui.web.configuration"},
+		basePackages = {"com.gofintec.kewlui.web.base", "com.gofintec.kewlui.web.api" , "com.gofintec.kewlui.web.configuration", "com.gofintec.app.ui.TestApp.tmp"},
 		nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class
 )
 public class KewlUiDemoApplication {
@@ -75,7 +74,7 @@ public class KewlUiDemoApplication {
 	public void init() throws SocketException {
 	}
 
-	private static KewlUI ui = new KewlUI(new DefaultResourceLoader());
+	private static KewlUI ui = new KewlUI();
 	private static DashboardForm dashboardWindow = new DashboardForm();
 
 

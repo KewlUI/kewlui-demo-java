@@ -121,6 +121,7 @@ public class DashboardForm {
                 .addPage("Components/Charts","Charts", (parent, state)-> chartPage.AddChartOverview(parent,state))
                 .addPage("Components/Window","GridWindow", (parent, state)-> containerPage.addGridPage(parent,state))
                 .addPage("Components/Popups","Popups", (parent, state)-> eventPage.AddEventExample(parent,state))
+                .addPage("Components/Extending","Extending (JS/React)", (parent, state)-> controlPage.addExtendControl(parent,state))
 
                 .addPage("Data","Data Binding", (parent, state)-> dataPage.addMainPage(parent,state))
                 .addPage("Data/State","Global/User states", (parent, state)-> dataPage.addStatePage(parent,state))
