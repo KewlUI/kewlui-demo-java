@@ -69,7 +69,8 @@ public class BasePage {
             // create the list of Tab headers, can be any type of control
             var tabList = TabList.appendTo(tabBar, state);
             tabList.setTabs(state, Arrays.asList("Description", "Java"));  // simplest way to add tabs, otherwise just add children
-            tabList.setBgColor(state, "blue.9 00");
+            tabList.setSelectedBgColor(state, "theme.colors.secondary_20");
+            tabList.setSelectedColor(state, "theme.colors.secondaryText_20");
 
             // create the list of Tab panels - must be in the same order as the tablist above...
             tabPanels = TabPanels.appendTo(tabBar, state);

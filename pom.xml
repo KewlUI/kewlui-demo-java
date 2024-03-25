@@ -72,8 +72,6 @@
 			<artifactId>spring-boot-starter-reactor-netty</artifactId>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
@@ -122,8 +120,6 @@
 			<artifactId>okhttp</artifactId>
 			<version>4.11.0</version>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>io.netty</groupId>

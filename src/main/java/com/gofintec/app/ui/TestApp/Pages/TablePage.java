@@ -364,7 +364,7 @@ var aw = AutoWrap.appendTo(vs,globalState);
     var statsSpark =  createStatsCard(aw,globalState, "Network usage");
     statsSpark.setDescription(globalState,"Total network egress usage");
     statsSpark.setBgGradient(globalState,"conic(to-t, #f0e, #f06, #f0e)");
-    statsSpark.setHeight(globalState,"150px");
+    statsSpark.setHeight(globalState,"50px");
     var ch = Chart.appendTo(statsSpark, globalState, ContainerPositionEnum.NORTH);
     ch.setSparkLines(globalState, true).setVariant(globalState, Chart.VariantEnum.LINEBASIC );
     ch.setValue(globalState, new ArrayList<Integer>(List.of(10,20,50,20,10,60,50,30,20,40)));

@@ -25,7 +25,6 @@ SOFTWARE.
 */
 
 
-import com.gofintec.app.ui.TestApp.Component.MyCardComponent;
 import com.gofintec.kewlui.base.StateData;
 import com.gofintec.kewlui.controls.base.VisualControl;
 import com.gofintec.kewlui.controls.base.settings.OverflowEnum;
@@ -76,7 +75,7 @@ Data and controls can be auto-synchronized between client and server, simplifyin
 Some examples include:
 
 - Global/User states
-    - Dashboard controls can either shared either for all users (global), or updating for a specific user (user state)
+    - Dashboard controls have state - either for all users (global), or for a specific user (user state)
     - Changes on the server side control will be auto-sent to client UIs
     - Values updated on the client side will be auto sent to the server
 - DataTable SQL.  "Client side SQL engine"

@@ -1,4 +1,4 @@
-package com.gofintec.app.ui.TestApp.Component;
+package com.gofintec.app.ui.TestApp.Pages;
 
 /*
 MIT License

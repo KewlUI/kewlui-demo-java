@@ -109,7 +109,7 @@ Charts use a client side sql engine that can pull data from different sources vi
 
 Remember to use a watch on a datatable, so the chart will be auto updated as data arrives
  
-<Divider/>
+<hr>
 
 ## SQL
 

@@ -25,8 +25,10 @@ SOFTWARE.
 */
 
 
+import com.gofintec.app.ui.TestApp.CustomControls.ExampleJSControl;
 import com.gofintec.kewlui.base.StateData;
 import com.gofintec.kewlui.controls.base.VisualControl;
+import com.gofintec.kewlui.controls.base.custom.CustomControl;
 import com.gofintec.kewlui.controls.base.settings.*;
 import com.gofintec.kewlui.controls.std.*;
 import org.apache.logging.log4j.LogManager;
@@ -68,8 +70,11 @@ KewlUI offers a wide range of controls that can be used in your application.
 - Divider - The Divider displays a thin horizontal or vertical line that can be used to separate content.
 - Editable - The Editable control allows users to edit text in a GUI by clicking on it and typing directly into it.
 - FormInput - Input that adds in helpers, Performs field validation
+- Heartbeat - Invisible client control that sends regular updates to the server
+- Icon - Icon control that displays an icon or image.
+- IFrame - The IFrame control allows users to embed a web page within a GUI.
+- Image - The Image control allows users to display an image within a GUI.
 - Input - The Input control is a user interface element that allows users to input and edit text or numerical data. It could be used to create forms for data collection or search bars for filtering information.
-- List - List control is a used for displaying a list of items.
 - Markdown - Component that allows rendering of text areas using markdown, including code sections
 - PinInput - The PinInput control is used to create a hidden and customizable input field for entering PIN codes.
 - Radio - Radio control is a GUI element that allows users to select one option out of multiple options presented in a list.
@@ -78,6 +83,7 @@ KewlUI offers a wide range of controls that can be used in your application.
 - StatVanilla - Visual control for showing statistics in a system
 - Switch - The Switch control is a user interface element that allows users to toggle between two states.
 - TextArea - The Textarea control allows users to edit multi-line text within a GUI by clicking on it and typing directly into it.
+- Tooltip - The Tooltip feature allows users to display a tooltip when they hover over an element.
 - Uploader - Allows file uploading
 
 If a control offers an Icon, this can be set to the icons name (if the icon pack has been loaded) 
@@ -93,24 +99,27 @@ If a control offers an Icon, this can be set to the icons name (if the icon pack
         addDivider(vs, state);
 
         addEditable(vs, state);
-        addEditableTextArea(vs,state);
+        addFormInput(vs,state);
+
+        addHeartbeat(vs,state);
+
         addIcon(vs,state);
         addIFrame(vs,state);
         addImage(vs,state);
         addInput(vs,state);
-        addFormInput(vs,state);
 
         addMarkdown(vs, state);
         addPinInput(vs,state);
         addRadioGroup(vs, state);
-        addSlider(vs, state);
         addSelect(vs, state);
+        addSlider(vs, state);
         addStats(vs, state);
         addSwitch(vs, state);
+
+        addTextArea(vs,state);
         addTooltip(vs, state);
         addUploader(vs, state);
-
-
+        addCommon(vs,state);
 
         String markdownDescription = """
 ### Other controls
@@ -120,6 +129,103 @@ Other controls have been implemented, and will be added to the control showcase 
         Markdown.appendTo(vs,state,markdownDescription, Markdown.ControlsEnum.NONE);
     }
 
+    private void addCommon (VStack parent, StateData state) {
+        String markdownDescription = """
+## Common Attributes (Comonents and Containers)
+
+
+## Width and Height
+
+- **setWidth (width)**: Controls the width of the component. e.g., `setWidth(state, "300px");`
+- **setHeight (height)**: Controls the height of the component. e.g., `setHeight(state, "200px");`
+- **setMaxWidth (maxWidth)**: Sets the maximum width of the component. e.g., `setMaxWidth(state, "500px");`
+- **setMaxHeight (maxHeight)**: Sets the maximum height of the component. e.g., `setMaxHeight(state, "400px");`
+- **setMinWidth (minWidth)**: Sets the minimum width of the component. e.g., `setMinWidth(state, "100px");`
+- **setMinHeight (minHeight)**: Sets the minimum height of the component. e.g., `setMinHeight(state, "100px");`
+
+## Margin and Padding
+
+- **setMargin (margin)**: Applies margin space on all sides of an element. e.g., `setMargin(state, "20px");`
+- **setMarginTop (marginTop)**: Applies margin to the top side. e.g., `setMarginTop(state, "20px");`
+- **setMarginRight (marginRight)**: Applies margin to the right side. e.g., `setMarginRight(state, "20px");`
+- **setMarginBottom (marginBottom)**: Applies margin to the bottom side. e.g., `setMarginBottom(state, "20px");`
+- **setMarginLeft (marginLeft)**: Applies margin to the left side. e.g., `setMarginLeft(state, "20px");`
+- **setPadding (padding)**: Applies padding space on all sides of an element. e.g., `setPadding(state, "20px");`
+- **setPaddingTop (paddingTop)**: Applies padding to the top side. e.g., `setPaddingTop(state, "20px");`
+- **setPaddingRight (paddingRight)**: Applies padding to the right side. e.g., `setPaddingRight(state, "20px");`
+- **setPaddingBottom (paddingBottom)**: Applies padding to the bottom side. e.g., `setPaddingBottom(state, "20px");`
+- **setPaddingLeft (paddingLeft)**: Applies padding to the left side. e.g., `setPaddingLeft(state, "20px");`
+
+## Colors
+
+- **setColor (color)**: Sets the foreground color of the component. e.g., `setColor(state, "blue");`
+- **setBgColor (bgColor)**: Sets the background color of the component. e.g., `setBgColor(state, "gray");`
+
+## Borders
+
+- **setBorder (border)**: Sets the border width, style, and color. e.g., `setBorder(state, "2px solid black");`
+- **setBorderWidth (borderWidth)**: Controls the width of the border. e.g., `setBorderWidth(state, "2px");`
+- **setBorderStyle (borderStyle)**: Sets the style of the border. e.g., `setBorderStyle(state, "dashed");`
+- **setBorderColor (borderColor)**: Specifies the color of the border. e.g., `setBorderColor(state, "red");`
+- **setBorderRadius (borderRadius)**: Controls the rounding of the corners. e.g., `setBorderRadius(state, "8px");`
+
+## Typography
+
+- **setFontSize (fontSize)**: Sets the size of the font. e.g., `setFontSize(state, "16px");`
+- **setFontWeight (fontWeight)**: Controls the weight of the font. e.g., `setFontWeight(state, "bold");`
+- **setLineHeight (lineHeight)**: Sets the height of a line. e.g., `setLineHeight(state, "1.5");`
+- **setLetterSpacing (letterSpacing)**: Controls the spacing between letters. e.g., `setLetterSpacing(state, "0.1em");`
+- **setTextAlign (textAlign)**: Aligns text within the component. e.g., `setTextAlign(state, "center");`
+- **setFontFamily (fontFamily)**: Sets the font family. e.g., `setFontFamily(state, "'Roboto', sans-serif");`
+
+## Layout
+
+- **setOverflow (overflow)**: Controls how overflowed content is handled. e.g., `setOverflow(state, "hidden");`
+
+## Other
+
+- **setControlHidden (controlHidden)**: If true, hides the component. e.g., `setControlHidden(state, true);`
+- **setControlPulseOnChange (controlPulseOnChang)**: If true, the component will pulse on change. e.g., `setControlPulseOnChange(state, true);`
+
+## Fallback
+
+If a direct function is not found on the control (e.g. setLetterSpacing), you can try setProperty on the short name (state, "letterSpacing", "0.1em");
+
+""";
+        var vs = new VStack(state);
+        vs.setAlignItems(state, AlignItemsEnum.FLEX_START);
+
+        var input = Input.appendTo(vs, state, "Input box with various attributes set"); // set placeholder
+        input.setBorder(state, "2px solid blue");
+        input.setBorderRadius(state, "md");
+        input.setPadding(state, "16px");
+        input.setBgColor(state, "theme.colors.page");
+        input.setColor(state, "theme.colors.pageText");
+        input.setFontSize(state, "md");
+        input.setBoxShadow(state, "sm");
+        input.setWidth(state, "100%");
+        input.setMargin(state, "8px");
+        input.setFontFamily(state, "'Comic Sans MS', cursive");
+
+        String java = """
+###Example Java code: \n\n
+```java
+    var input = Input.appendTo(vs, state, "Input box with various attributes set"); // set placeholder
+    input.setBorder(state, "2px solid blue");
+    input.setBorderRadius(state, "md");
+    input.setPadding(state, "16px");
+    input.setBgColor(state, "theme.colors.page");
+    input.setColor(state, "theme.colors.pageText");
+    input.setFontSize(state, "md");
+    input.setBoxShadow(state, "sm");
+    input.setWidth(state, "100%");
+    input.setMargin(state, "8px");
+    input.setFontFamily(state, "'Comic Sans MS', cursive");
+```
+""";
+
+        addExplanationPages(parent, state, "(Common visual styling)", markdownDescription, vs, java);
+    }
 
 
     private void addEditable(VStack parent, StateData state) {
@@ -158,6 +264,57 @@ Click on the edit button to edit the text - you can then also choose to accept o
         addExplanationPages(parent, state, "Editable", markdownDescription, vs, java);
     }
 
+    private void addHeartbeat(VStack parent, StateData state) {
+        String markdownDescription = """
+### Heartbeat
+
+The heartbeat control will cause a callback for all connected users every X seconds.
+
+Setting the heartbeatInterval to 0 will disable the heartbeat.  If not set, default is 15 seconds.
+
+Heartbeat code is achieved by the client sending back a ISO timestamp (and timezone) in the Value field.
+
+The heartbeat control is otherwise invisible.
+
+This might be useful as a timer to update user specific controls at a regular interval.
+
+""";
+
+        var vs = new VStack(state);
+        vs.setAlignItems(state, AlignItemsEnum.FLEX_START);
+
+        Divider.appendTo(vs, state);
+        Text.appendTo(vs, state, "Heartbeat Example");
+
+        var text = Text.appendTo(vs, state, "");
+        text.setControlPulseOnChange(state, true); // momentary highlight on change
+
+        var heartbeat = Heartbeat.appendTo(vs, state);
+        heartbeat.setHeartbeatInterval(state, 3);
+        heartbeat.setOnChange(state, (eventName, clientContext, control, clientState, event)->{
+            var val = heartbeat.getValue(clientState);
+            text.setText(clientState, "Client sent Heartbeat: '" + val + "' to the server."); // remember update text not value here
+        });
+
+        String java = """
+###Example Java code: \n\n
+```java       
+    Text.appendTo(vs, state, "Heartbeat Example");
+
+    var text = Text.appendTo(vs, state, "");
+    text.setControlPulseOnChange(state, true); // momentary highlight on change
+
+    var heartbeat = Heartbeat.appendTo(vs, state);
+    heartbeat.setHeartbeatInterval(state, 3);
+    heartbeat.setOnChange(state, (eventName, clientContext, control, clientState, event)->{
+        var val = heartbeat.getValue(clientState);
+        text.setText(clientState, "Client sent Heartbeat: '" + val + "' to the server."); // remember update text not value here
+    });
+```
+""";
+
+            addExplanationPages(parent, state, "Heartbeat", markdownDescription, vs, java);
+    }
 
     private void addImage(VStack parent, StateData state) {
         String markdownDescription = """
@@ -1204,7 +1361,7 @@ If no control is added inside it, then it will default to an inputbox.
         addExplanationPages(parent, state,"Input / NumberInput / InputGroup", markdownDescription, vs, java);
     }
 
-    private void addEditableTextArea (VStack parent, StateData state) {
+    private void addTextArea (VStack parent, StateData state) {
         String markdownDescription = """
 ### TextArea 
 
@@ -1594,12 +1751,41 @@ Callback:  onUpload is called when uploading is performed
 
     public void addExtendControl (VisualControl parent, StateData globalState) {
 
+        var vs = VStack.appendTo(parent, globalState);
+
+        Markdown.appendTo(vs, globalState, Markdown.ControlsEnum.ALL, """
+## Extending KewlUI
+
+KewlUI simplifies adding your own controls to the system.
+
+Controls are added by registering a Javascript rendering function (Js or React) which can be called by a custom control.
+
+This can be done in 2 ways:
+
+1. Adding Javascript/React links/scripts to your html page, and using CustomControl to run them.
+2. Creating a new class that extends CustomControl - which contains the javascript/css - and registering it.
+
+<br/>           
+
+While both are possible, it is most likely you will want the second option - detailed in "Part 2" below.                
+<br/>
+""");
+
+        addExtendControl1(vs, globalState);
+        addExtendControl2(vs, globalState);
+    }
+
+
+    public void addExtendControl1 (VisualControl parent, StateData globalState) {
+
         String markdownDescription = """
-## Custom Control
+## Custom Controls - Part 1
 
 KEWLUI can be extended with React Components, JavaScript components, and so on.
     
 The Custom control allows integrating external controls into the framework.
+
+Note: Part2 describes creating a Java class with Javascript/Css encapsulated within the user defined custom class
 
 <br/>
     
@@ -1624,6 +1810,8 @@ The function is passed a **param** object, which has the following fields
     - isSmallScreen - set true if this appears to be mobile
     - rebuild() - function to call to perform a complete rerender  (will stop this control, clean up, build a new one)
     - colors - dictionary containing color names, such as "primary", "pageText" etc - used to pass on theming.
+    - state - state dictionary for this control, can be used by user js code as a storage area
+    - paramsChanged - boolean, true if paint is due to parameters changing.  False== only value may have has changed.
 <br/>
 The function should return either null/unknown, or another function that should be called on destruction of the control. 
     - Cleanup function receives **param** dictionary, which contains targetId above.
@@ -1635,7 +1823,9 @@ In the below example, we register a function 'plainJSFunction', which when calle
 <br/>
 
 ```js
-
+<script>
+    window.KEWLUI_CONTROLS = window.KEWLUI_CONTROLS || {};
+    
     window.KEWLUI_CONTROLS['plainJSFunction'] = function(params) {
       const {targetId, props, eventHandlers, text, value, setValue, isSmallScreen, rebuild, colors} = params;
       const element = document.getElementById(targetId);
@@ -1644,6 +1834,7 @@ In the below example, we register a function 'plainJSFunction', which when calle
       }
       return null; // returning null == no cleanup necessary
     };
+</script>
 ```
 
 <br/>
@@ -1655,10 +1846,10 @@ The React case is slightly more complicated, as react needs compilation into a f
 An example react app which registers a control:
 
 ```js
-
+    // index.js/index.jsx 
     import ReactDOM from 'react-dom';
     import MyReactComponent from './MyReactComponent'; // Path to your React component
-    
+            
     window.KEWLUI_CONTROLS = window.KEWLUI_CONTROLS || {};
     
     window.KEWLUI_CONTROLS['renderReactComponent'] = function(params) {
@@ -1669,6 +1860,8 @@ An example react app which registers a control:
         ReactDOM.render(<MyReactComponent {...props} />, element);
       }
     };
+    
+    
 ```
 
 React will then build a js file, which should be included in the html before the KEWLUI js.
@@ -1676,7 +1869,7 @@ React will then build a js file, which should be included in the html before the
 <br/><br/>
 ### Calling the control
 
-The control is different in that most normal props (such as width etc) are simply added to props and not actioned
+The control is different in that most normal props (such as width etc) are simply passed through to the final control and visual style is not interpreted. 
 Ie setWidth will not change the width of the control.  If this is needed, surround it with a Box of the dimensions needed.
 
 ```java
@@ -1698,12 +1891,13 @@ This is done as a kind of "debounce" to reduce painting calls.
         vs.setTextAlign(globalState, TextAlignEnum.LEFT);
 
         Text.appendTo(vs,globalState, "Rendering Custom control within box below");
+
         var box = Box.appendTo(vs, globalState);
         box.setPadding(globalState, "10px").setBorder(globalState, "1px solid black").setAlign(globalState, AlignItemsEnum.FLEX_START);
         box.setBgColor(globalState, "theme.colors.secondary_50");
 
-        var custom = Custom.appendTo(box, globalState);
-        custom.setControlName(globalState, "plainJSFunction");
+        var custom = CustomControl.appendTo(box, globalState);
+        custom.setControlName(globalState, "plainJSFunction"); // this has been added to index.html as an example
         custom.setValue(globalState, 1234); // value will be passed in params.value
         custom.setProperty(globalState, "userName", "Bob Gnarley"); // gets added to props
 
@@ -1718,37 +1912,169 @@ This is done as a kind of "debounce" to reduce painting calls.
             }
         }, 1000, 2000);
 
-        var custom2 =  Custom.appendTo(vs, globalState);
-        custom2.setControlName(globalState, "aButton");
-
+        Divider.appendTo(vs,globalState);
 
         var java = """
 ```java
-    Text.appendTo(vs,globalState, "Rendering Custom control within box below");
-    var box = Box.appendTo(vs, globalState);
-    box.setPadding(globalState, "10px").setBorder(globalState, "1px solid black").setAlign(globalState, AlignItemsEnum.FLEX_START);
-    box.setBgColor(globalState, "theme.colors.secondary_50");
+       Text.appendTo(vs,globalState, "Rendering Custom control within box below");
 
-    var custom = Custom.appendTo(box, globalState);
-    custom.setControlName(globalState, "plainJSFunction");
-    custom.setValue(globalState, 1234); // value will be passed in params.value
-    custom.setProperty(globalState, "userName", "Bob Gnarley"); // gets added to props
+       var box = Box.appendTo(vs, globalState);
+       box.setPadding(globalState, "10px").setBorder(globalState, "1px solid black").setAlign(globalState, AlignItemsEnum.FLEX_START);
+       box.setBgColor(globalState, "theme.colors.secondary_50");
 
-    Divider.appendTo(vs,globalState);
+       var custom = CustomControl.appendTo(box, globalState);
+       custom.setControlName(globalState, "plainJSFunction");
+       custom.setValue(globalState, 1234); // value will be passed in params.value
+       custom.setProperty(globalState, "userName", "Bob Gnarley"); // gets added to props
 
-    Timer timer = new Timer();
-    Random r = new Random();
-    timer.scheduleAtFixedRate(new TimerTask() {  // test updating value on custom element
-        @Override
-        public void run() {
-            custom.setValue(globalState, r.nextInt(1000)); // update control with random value
-        }
-    }, 1000, 2000);
+       Divider.appendTo(vs,globalState);
+
+       Timer timer = new Timer();
+       Random r = new Random();
+       timer.scheduleAtFixedRate(new TimerTask() {  // test updating value on custom element
+           @Override
+           public void run() {
+               custom.setValue(globalState, r.nextInt(1000)); // update control with random value
+           }
+       }, 1000, 2000);
 ```
-                """;
+""";
 
         // Add explanation pages (assuming this method is available and works similarly to other examples)
-        addExplanationPages(parent, globalState, "Extending", markdownDescription, vs, java, true);
+        addExplanationPages(parent, globalState, "Extending Basics", markdownDescription, vs, java, true);
 
+    }
+
+
+    public void addExtendControl2 (VisualControl parent, StateData globalState) {
+
+        String markdownDescription = """
+## Custom Controls - Part 2 - Java classes
+
+You can create your own custom controls by doing the following:
+
+1. Create your custom control, inheriting/extending from "CustomControl" class
+2. Add in constructor and appendTo functions
+3. Add in static functions to the class, getControlJavascript and (optionally) getControlCss() / getControlIncludes()
+4. Call static CustomControl.registerClass to startup to add make your class usable.
+
+Registering the class means that the Css/Javascript will automatically be added to KewlUI pages/forms.
+
+<br/>
+
+Let's start with an example - ExampleJSControl - which creates a colorful control that adds 2 numbers (x/y) together.
+<br/>
+
+### 1. Create ExampleJSControl
+
+```java
+    public class ExampleJSControl extends CustomControl....
+```
+<br/>
+### 2. Add Constructor + appendTo static function
+
+```java
+    public ExampleJSControl (StateData state) {
+        super(state);
+    }
+
+    public static ExampleJSControl appendTo(VisualControl parent, StateData state, Object... modifiers) {
+        return appendTo( new ExampleJSControl(state), parent, state, modifiers);
+    }
+```
+<br/>
+
+### 3. Create static functions
+
+1. Let's create function getControlCss
+
+Note: we can use theme colors in our css using vars, however instead of . separators we need - separators
+e.g. use: var(--theme-colors-primaryText)
+
+```java
+    public static String getControlCss() {
+        return ""\"
+                /* Styles for the funky-color-fade custom class */
+                      .funky-color-fade {
+                          color: var(--theme-colors-primaryText); /* Text color - taken from theme palette */
+                          
+                          /* Gradient background for color fade effect - using theme colors */
+                           background: linear-gradient(to right, var(--theme-colors-primary), var(--theme-colors-secondary));
+                          
+                          /* Additional styles for visual appeal */
+                          padding: 20px;
+                          border-radius: 10px;
+                          text-align: center;
+                          font-size: 18px;
+                      }\s
+                ""\";
+    }
+``` 
+<br/>
+
+2. Now let's create the getControlJavascript to return JS:
+<br/>  
+
+```java
+public static String getControlJavascript() {
+    return ""\"
+    // Register function in JS
+    window.KEWLUI_CONTROLS['ExampleJSControl'] = function(params) {
+          // function params, which has a number of fields within it:
+          const {targetId, props, eventHandlers, text, value, setValue, isSmallScreen, rebuild, colors, state} = params;
+          
+          // we have the targetId - get the document element
+          const element = document.getElementById(targetId);
+          if(element) {
+             // set the elements innerHTML - note we set the class thus get the css defined earlier
+             const answer = (props.x ?? 0)  * (props.y ?? 0);
+             element.innerHTML = `< div class="funky-color-fade"> Multiplying ${props.x} with ${props.y} gives answer ${answer}</div>`;
+          }
+          return null; // returning null == no cleanup necessary
+    };
+    ""\";
+    }                
+```
+<br/>
+<br/>
+
+
+### 4. Register the control
+
+<br/>
+Finally in our code, we need to register the new control.  We do this by calling: CustomControl.registerClass.
+<br/>
+CustomControl.registerClass(ExampleJSControl.class);
+<br/>
+
+The control is now ready to use:            
+<br/>
+""";
+
+        // Creating the container
+        var vs = new VStack(globalState);
+        vs.setAlignItems(globalState, AlignItemsEnum.FLEX_START);
+        vs.setTextAlign(globalState, TextAlignEnum.LEFT);
+
+        Divider.appendTo(vs,globalState);
+
+        Text.appendTo(vs, globalState, "Following control is Java 'ExampleJsControl' which contains Javascript/Css within the class");
+        var example = ExampleJSControl.appendTo(vs,globalState);
+        example.setX(globalState, 6);
+        example.setY(globalState, 7);
+
+        var java = """
+```java
+    Divider.appendTo(vs,globalState);
+
+    Text.appendTo(vs, globalState, "Following control is Java 'ExampleJsControl' which contains Javascript/Css within the class");
+    var example = ExampleJSControl.appendTo(vs,globalState);
+    example.setX(globalState, 6);
+    example.setY(globalState, 7);
+```
+""";
+
+        // Add explanation pages (assuming this method is available and works similarly to other examples)
+        addExplanationPages(parent, globalState, "Extending - Java Custom Controls", markdownDescription, vs, java, true);
     }
 }

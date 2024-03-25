@@ -394,8 +394,7 @@ Adding/changing themes is done in two steps
         String markdownDescription = """
 ## Theme Colors
 
-A number of colors are available in a theme, and are selected by controls using "theme.colors.<colorName>".
-
+A number of colors are available in a theme, and are selected by controls using "theme.colors.[[colorName]]".
 
 
 #### Main settable colors
@@ -459,7 +458,7 @@ In a similar manner, Success_50 or Gray_50 will be lighter versions of Success/G
             String c = (color.equals("gray")) ? "white" : ("theme.colors."+color+"Text");
             String bg = "theme.colors."+color;
 
-            Markdown.appendTo(vs, state, "bgColor:**+"+bg+"** , text:**"+c+"**")
+            Markdown.appendTo(vs, state, "bgColor:**"+bg+"** , text:**"+c+"**")
                     .setBgColor(state, bg).setColor(state, c)
                     .setWidth(state, "500px").setHeight(state, "50px");
 

@@ -25,6 +25,7 @@ SOFTWARE.
 */
 
 
+import com.gofintec.app.ui.TestApp.CustomControls.ExampleJSControl;
 import com.gofintec.app.ui.TestApp.Pages.*;
 import com.gofintec.app.ui.TestApp.Model.RiskReportRow;
 import com.gofintec.kewlui.base.*;
@@ -33,6 +34,7 @@ import com.gofintec.kewlui.base.databinding.SequenceNumberGenerator;
 import com.gofintec.kewlui.base.util.LockGuard;
 import com.gofintec.kewlui.builders.SidebarBuilder;
 import com.gofintec.kewlui.controls.base.VisualControl;
+import com.gofintec.kewlui.controls.base.custom.CustomControl;
 import com.gofintec.kewlui.controls.base.settings.*;
 import com.gofintec.kewlui.controls.base.theme.VisualStyle;
 import com.gofintec.kewlui.controls.std.*;
@@ -80,9 +82,11 @@ public class DashboardForm {
         Form form = new Form();
         var top = form.getMainPanel();
         var globalState = form.getGlobalState();
+        addCustomControls();
 
         try (var guard = new LockGuard.Write(globalState)) {
             var dashboard = DashboardLayout.appendTo(top, globalState);
+
             addSyncedDataTable(globalState, dashboard);
             addApplicationPages(globalState, dashboard);
             var navbar = NavBarSimple.appendTo(dashboard, globalState, ContainerPositionEnum.HEADER);
@@ -94,6 +98,18 @@ public class DashboardForm {
         }
     }
 
+    /**
+     * Register custom controls with the central registry
+     * This allows control javascript etc to be automatically be added to
+     */
+    private void addCustomControls () throws RuntimeException {
+        try {
+            CustomControl.registerClass(ExampleJSControl.class);
+        } catch (Exception ex) {
+            Log.error("Error in demo, could not register custom controls!!!");
+            throw new RuntimeException(ex);
+        }
+    }
 
 
     /**
@@ -297,7 +313,6 @@ public class DashboardForm {
         var b = MenuItem.appendTo(menuDrop,state,"Amazing Designs");
         Divider.appendTo(menuDrop,state);
         b = MenuItem.appendTo(menuDrop,state,"Great Guacamole");
-
     }
 
 

@@ -35,6 +35,8 @@ import com.gofintec.kewlui.web.api.ComponentGetterAllow;
 import com.gofintec.kewlui.web.api.ResourceGetter;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -65,6 +67,8 @@ import java.net.SocketException;
 		nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class
 )
 public class KewlUiDemoApplication {
+
+	private static final Logger Log = LogManager.getLogger(KewlUiDemoApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(KewlUiDemoApplication.class, args);
@@ -101,7 +105,9 @@ public class KewlUiDemoApplication {
 			// ... here add in if check if auth token is valid
 			return true;
 		}));
-		ui.start(); // start KewlUI - locally available under http://localhost:8080/kewlui/index.html
+		ui.start(); // start KewlUI
+
+		Log.info("****** Demo page normally available under:  http://localhost:8080/kewlui/index.html ");
 
 		return ui;
 	}
